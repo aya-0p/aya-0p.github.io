@@ -1,0 +1,27 @@
+.box_m{
+   display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.box_c{
+    flex-basis: 48px;
+    align-self: center;
+}
+.box_c p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  }
+.box_c img {
+  width: 100%;
+  }
+.box_c1 {
+    align-self: center;
+}
+.box_c2 {
+    flex-basis: 72px;
+    align-self: center;
+}

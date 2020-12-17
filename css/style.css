@@ -1,0 +1,64 @@
+body{
+
+}
+.mount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+nav {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:50px;
+    border-bottom:1px solid gray;
+}
+nav *:last-child{
+    min-width:50px;
+
+}
+nav *:first-child{
+    min-width:50px;
+}
+nav h1 {
+    font-size:20px;
+}
+#menu button {
+    width:auto;
+    height:50px;
+    padding:10px;
+    margin-bottom:10px;
+    border-radius:10px;  
+    background-color:pink;
+}
+#menu {
+    margin-top:100px;
+    display:flex;
+    flex-direction: column;
+}
+a{
+    color:inherit
+}
+a:visited{
+    color:inherit
+}
+#mount {
+    width:100%;
+    max-height:200px;
+    overflow: hidden;
+    margin-bottom:10px;
+    text-align: center;
+}
+#mount img {
+    width:80%;
+}
+#explain{
+    padding:10px;
+    height:200px;
+    border:dashed 1px gray;
+}
+#license {
+    font-size:10px;
+}
