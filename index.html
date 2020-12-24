@@ -1,41 +1,423 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>仮ページ</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
-    <script src="components/loader.js"></script>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
     <link rel="stylesheet" href="components/loader.css">
+    <link rel="stylesheet" href="css/style2.css">
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="components/loader.js"></script>
     <script>
+        //
+        // TODO: Write JavaScript code here
+        //
     </script>
 </head>
 <body>
     <nav>
         <div>&nbsp;</div>
-        <h1>食料</h1>
+        <h1>食料一覧と回復量</h1>
         <div>&nbsp;</div>
     </nav>
-    <div id="DIV_ID">
-        仮のメニューです。実際の運用時はpdfを経由して使用します。<br>
-        最終更新:Ver.2.18.0<br>
-        2020年12月19日
-        <a href="https://github.com/aya-0p/aya-0p.github.io">htmlとかその辺はこちら</a>
-    </div>
-    <div id="menu">
-        <a href="template/template.html"><button>テンプレート(確認用)</button></a>
-        <a href="popcorn/1.html"><button>ポップコーン</button></a>
-        <a href="sauerkraut/1.html"><button>ザウアークラウト</button></a>
-        <a href="baked_potato/1.html"><button>ベイクドポテト</button></a>
-        <a href="half_baked_potato/1.html"><button>半分のベイクドポテト</button></a>
-        <a href="bean_burrito/1.html"><button>豆のブリトー</button></a>
-        <a href="mango_slices/1.html"><button>スライスしたマンゴー</button></a>
-        <a href="bowl_of_whole_milk/1.html"><button>牛乳</button></a>
-        <!--
-            ここに内容
-        -->
-    </div>
+    <a href="all.html">作成中/完成済みの物のみ表示</a>
+    <table class="table table-bordered table-hover table-condensed" border="1" style="border-collapse: collapse">
+<thead><tr><th title="Field #2">食品名(日本語)</th>
+<th title="Field #3">食品名(英語)</th>
+<th title="Field #4">回復量</th>
+<th title="Field #5">その他</th>
+</tr></thead>
+<tbody><tr>
+<td>ほ乳瓶</td>
+<td>Baby Bottle</td>
+<td>1</td>
+<td>子供も持てる</td>
+</tr>
+<tr>
+<td>松葉茶</td>
+<td>Pine Needle Tea</td>
+<td>1</td>
+<td>子供が生まれやすくなる</td>
+</tr>
+<tr>
+<td>つぶしたニンジンの種</td>
+<td>Crushed Carrot Seed</td>
+<td>1</td>
+<td>子供が生まれなくなる</td>
+</tr>
+<tr>
+<td>しびれたけ</td>
+<td>Psilocybe Mushroom</td>
+<td>3</td>
+<td> </td>
+</tr>
+<tr>
+<td>ポップコーン</td>
+<td>Popcorn</td>
+<td>3</td>
+<td> </td>
+</tr>
+<tr>
+<td>キイチゴ</td>
+<td>Raspberry</td>
+<td>3</td>
+<td>天然資源、時間による</td>
+</tr>
+<tr>
+<td>スグリ入りのボウル</td>
+<td>Bowl of Gooseberries</td>
+<td>3</td>
+<td>ボーナスを考えないならボウルに入れない方がいい</td>
+</tr>
+<tr>
+<td>緑豆入りのボウル</td>
+<td>Bowl of Green Beans</td>
+<td>4</td>
+<td> </td>
+</tr>
+<tr>
+<td>ブルーベリー</td>
+<td>Bowl with Blueberries</td>
+<td>4</td>
+<td> </td>
+</tr>
+<tr>
+<td>お粥</td>
+<td>Bowl with Gruel</td>
+<td>5</td>
+<td> </td>
+</tr>
+<tr>
+<td>さやを取ったトウモロコシ</td>
+<td>Shucked Ear of Corn</td>
+<td>5</td>
+<td> </td>
+</tr>
+<tr>
+<td>スグリ</td>
+<td>Gooseberry</td>
+<td>5</td>
+<td>天然資源</td>
+</tr>
+<tr>
+<td>ザウアークラウト</td>
+<td>Bowl of Sauerkraut</td>
+<td>6</td>
+<td> </td>
+</tr>
+<tr>
+<td>ベイクドポテト</td>
+<td>Baked Potato</td>
+<td>6</td>
+<td> </td>
+</tr>
+<tr>
+<td>半分のベイクドポテト</td>
+<td>Half Baked Potato</td>
+<td>6</td>
+<td> </td>
+</tr>
+<tr>
+<td>野生タマネギ</td>
+<td>Wild Onion</td>
+<td>6</td>
+<td>天然資源</td>
+</tr>
+<tr>
+<td>ニンジン</td>
+<td>Carrot</td>
+<td>7</td>
+<td>何もしないと5分で消える</td>
+</tr>
+<tr>
+<td>ニンジンパイ</td>
+<td>Cooked Carrot Pie</td>
+<td>7</td>
+<td> </td>
+</tr>
+<tr>
+<td>肉の出汁</td>
+<td>Meat Broth</td>
+<td>7</td>
+<td> </td>
+</tr>
+<tr>
+<td>野生ニンジン</td>
+<td>Wild Carrot</td>
+<td>7</td>
+<td>天然資源</td>
+</tr>
+<tr>
+<td>調理済み羊肉</td>
+<td>Cooked Mutton</td>
+<td>7</td>
+<td> </td>
+</tr>
+<tr>
+<td>おにぎり</td>
+<td>Onigiri</td>
+<td>8</td>
+<td> </td>
+</tr>
+<tr>
+<td>パン</td>
+<td>Slice of Bread</td>
+<td>8</td>
+<td> </td>
+</tr>
+<tr>
+<td>脱脂乳</td>
+<td>Bowl of Skim Milk</td>
+<td>8</td>
+<td> </td>
+</tr>
+<tr>
+<td>たくさんのブルーベリー</td>
+<td>Bowl with lots of Blueberries</td>
+<td>8</td>
+<td> </td>
+</tr>
+<tr>
+<td>カルニタス入りのボウル</td>
+<td>Bowl of Carnitas</td>
+<td>8</td>
+<td> </td>
+</tr>
+<tr>
+<td>ごぼう</td>
+<td>Burdock Root</td>
+<td>9</td>
+<td>天然資源</td>
+</tr>
+<tr>
+<td>スライスしたマンゴー</td>
+<td>Mango Slices</td>
+<td>9</td>
+<td> </td>
+</tr>
+<tr>
+<td>バナナ</td>
+<td>Banana</td>
+<td>9</td>
+<td>天然資源</td>
+</tr>
+<tr>
+<td>スポンジケーキ</td>
+<td>Sponge Cake</td>
+<td>10</td>
+<td> </td>
+</tr>
+<tr>
+<td>サボテンの実</td>
+<td>Cactus Fruit</td>
+<td>10</td>
+<td>天然資源</td>
+</tr>
+<tr>
+<td>七面鳥スープの麺と卵と箸</td>
+<td>Noodles and Egg in Turkey Broth with Chopsticks</td>
+<td>10</td>
+<td> </td>
+</tr>
+<tr>
+<td>調理済みウサギ</td>
+<td>Cooked Rabbit</td>
+<td>10</td>
+<td> </td>
+</tr>
+<tr>
+<td>調理済みのガン</td>
+<td>Cooked Goose</td>
+<td>10</td>
+<td> </td>
+</tr>
+<tr>
+<td>豚肉のスープの麺と卵（箸つき）</td>
+<td>Noodles and Egg in Meat Broth with Chopsticks</td>
+<td>10</td>
+<td> </td>
+</tr>
+<tr>
+<td>ケーキひと切れ</td>
+<td>Piece of Cake</td>
+<td>10</td>
+<td>1口目</td>
+</tr>
+<tr>
+<td>ケーキひと切れ</td>
+<td>Piece of Cake</td>
+<td>10</td>
+<td>2口目</td>
+</tr>
+<tr>
+<td>ブルーベリーとクリーム</td>
+<td>Blueberries and Cream</td>
+<td>10</td>
+<td> </td>
+</tr>
+<tr>
+<td>調理済みブルーベリーパイ</td>
+<td>Cooked Blueberry Pie</td>
+<td>10</td>
+<td> </td>
+</tr>
+<tr>
+<td>調理済みラズベリーパイ</td>
+<td>Cooked Raspberry Pie</td>
+<td>10</td>
+<td> </td>
+</tr>
+<tr>
+<td>ベリーパイ</td>
+<td>Cooked Berry Pie</td>
+<td>10</td>
+<td> </td>
+</tr>
+<tr>
+<td>ポリッジ</td>
+<td>Bowl with Porridge</td>
+<td>10</td>
+<td> </td>
+</tr>
+<tr>
+<td>七面鳥の出汁</td>
+<td>Bowl of Turkey Broth</td>
+<td>10</td>
+<td> </td>
+</tr>
+<tr>
+<td>煮込んだ米</td>
+<td>Boiled Rice</td>
+<td>10</td>
+<td> </td>
+</tr>
+<tr>
+<td>切った卵</td>
+<td>Egg Halves</td>
+<td>10</td>
+<td> </td>
+</tr>
+<tr>
+<td>豆のタコス</td>
+<td>Bean Taco</td>
+<td>10</td>
+<td> </td>
+</tr>
+<tr>
+<td>バターつきパン</td>
+<td>Buttered Bread on Clay Plate</td>
+<td>12</td>
+<td> </td>
+</tr>
+<tr>
+<td>3姉妹のシチュー</td>
+<td>Bowl of Stew</td>
+<td>14</td>
+<td> </td>
+</tr>
+<tr>
+<td>ウサギパイ</td>
+<td>Cooked Rabbit Pie</td>
+<td>14</td>
+<td> </td>
+</tr>
+<tr>
+<td>牛乳</td>
+<td>Bowl of Whole Milk</td>
+<td>14</td>
+<td> </td>
+</tr>
+<tr>
+<td>調理済みガンのパイ</td>
+<td>Cooked Goose Pie</td>
+<td>14</td>
+<td> </td>
+</tr>
+<tr>
+<td>ベリーニンジンパイ</td>
+<td>Cooked Berry Carrot Pie</td>
+<td>15</td>
+<td>レシピなし</td>
+</tr>
+<tr>
+<td>調理済み羊肉パイ</td>
+<td>Cooked Mutton Pie</td>
+<td>15</td>
+<td> </td>
+</tr>
+<tr>
+<td>調理済み豚肉パイ</td>
+<td>Cooked Pork Pie</td>
+<td>15</td>
+<td> </td>
+</tr>
+<tr>
+<td>甘いポリッジ</td>
+<td>Sweet Porridge </td>
+<td>16</td>
+<td> </td>
+</tr>
+<tr>
+<td>豚肉のタコス</td>
+<td>Pork Taco</td>
+<td>17</td>
+<td> </td>
+</tr>
+<tr>
+<td>ウサギニンジンパイ</td>
+<td>Cooked Rabbit Carrot Pie</td>
+<td>18</td>
+<td> </td>
+</tr>
+<tr>
+<td>ベリーウサギパイ</td>
+<td>Cooked Berry Rabbit Pie</td>
+<td>18</td>
+<td>レシピなし</td>
+</tr>
+<tr>
+<td>オムレツ</td>
+<td>Omelette</td>
+<td>19</td>
+<td> </td>
+</tr>
+<tr>
+<td>七面鳥のドラムスティック</td>
+<td>Turkey Drumstick </td>
+<td>19</td>
+<td> </td>
+</tr>
+<tr>
+<td>豆のブリトー</td>
+<td>Bean Burrito</td>
+<td>19</td>
+<td> </td>
+</tr>
+<tr>
+<td>薄切りの七面鳥</td>
+<td>Turkey Slice on Plate</td>
+<td>19</td>
+<td> </td>
+</tr>
+<tr>
+<td>ベリーウサギニンジンパイ</td>
+<td>Cooked Berry Carrot Rabbit Pie</td>
+<td>20</td>
+<td>レシピなし</td>
+</tr>
+<tr>
+<td>調理済みの魚</td>
+<td>Cooked Fish</td>
+<td>20</td>
+<td> </td>
+</tr>
+<tr>
+<td>(母乳)</td>
+<td> </td>
+<td>0〜9</td>
+<td>正確には食料ではない、親は-1</td>
+</tr>
+</tbody></table>
+    <!-- TODO: Please edit here -->
 </body>
 </html>
