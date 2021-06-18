@@ -1,0 +1,15 @@
+.main {
+  background-color: #e6e6e6;
+}
+
+div {
+  border: 2px black solid;width: 290px;height: 600px;
+}
+
+#text-button {
+  display: block;
+  cursor: pointer;
+  width: 160px;
+  text-align: center;
+  border: 1px solid #232323;
+}
