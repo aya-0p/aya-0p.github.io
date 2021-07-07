@@ -2,8 +2,8 @@ let oReq,
     craft,
     num = "a",
     lang = "Japanese";
-function main() {
-  getJson();
+async function main() {
+  await getJson();
   document.getElementById("name").innerHTML = craft[num][lang];
   document.getElementById("recovery").innerHTML = craft[num]["Recovery"];
   document.getElementById("amount").innerHTML = carft[num]["Amount"];
