@@ -1,6 +1,6 @@
 let oReq,
     craft,
-    num = 1,
+    num = "a",
     lang = "Japanese";
 function main() {
   getJson();
