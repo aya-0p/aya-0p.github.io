@@ -1,4 +1,10 @@
 function main(){}
-fetch("https://aya-0p.github.io/other/foods/crafts.json")
-  .then(response => JSON.parse(response))
-  .then(data => document.getElementById("1").innerHTML = data);
+function reqListener () {
+  document.getElementById("1").innerHTML = this.responseText;
+  console.log(this.responseText);
+}
+
+var oReq = new XMLHttpRequest();
+oReq.addEventListener("load", reqListener);
+oReq.open("GET", "https://aya-0p.github.io/other/foods/crafts.json");
+oReq.send();
