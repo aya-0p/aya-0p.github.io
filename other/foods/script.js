@@ -6,9 +6,9 @@ async function main() {
   await getJson();
   document.getElementById("name").innerHTML = craft[num][lang];
   document.getElementById("recovery").innerHTML = craft[num]["Recovery"];
-  document.getElementById("amount").innerHTML = carft[num]["Amount"];
+  document.getElementById("amount").innerHTML = craft[num]["Amount"];
   document.getElementById("size").innerHTML = craft[num]["Size"];
-  document.getElementById("other").innerHTML = carft[num]["Other"];
+  document.getElementById("other").innerHTML = craft[num]["Other"];
 }
 function reqListener() {
   //document.getElementById("1").innerHTML = this.responseText;
