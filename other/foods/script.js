@@ -1,6 +1,6 @@
 let oReq;
 var craft,
-    num = "a",
+    num = "0",
     lang = "Japanese";
 oReq = new XMLHttpRequest();
 oReq.addEventListener("load", function(){craft = JSON.parse(this.responseText)});

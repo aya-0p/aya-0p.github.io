@@ -1,5 +1,15 @@
 {
-  "a": {
+  "0": {
+    "English": "",
+    "Japanese": "",
+    "Recovery": 0,
+    "Amount": 1,
+    "Size": 1,
+    "Natural": false,
+    "Make": true,
+    "Other": ""
+  },
+  "1": {
     "English": "Baby Bottle",
     "Japanese": "ほ乳瓶",
     "Recovery": 1,
@@ -9,7 +19,7 @@
     "Make": true,
     "Other": "子供も持つことができる"
   },
-  "b": {
+  "2": {
     "English": "Pine Needle Tea",
     "Japanese": "松葉茶",
     "Recovery": 1,
@@ -19,7 +29,7 @@
     "Make": true,
     "Other": "子供が産まれやすくなる"
   },
-  "c": {
+  "3": {
     "English": "Crushed Carrot Seed",
     "Japanese": "つぶしたニンジンの種",
     "Recovery": 1,
@@ -29,7 +39,7 @@
     "Make": true,
     "Other": "子供が産まれなくなる"
   },
-  "d": {
+  "4": {
     "English": "Bowl of Gooseberries",
     "Japanese": "スグリ入りのボウル",
     "Recovery": 2,
@@ -39,7 +49,7 @@
     "Make": true,
     "Other": null
   },
-  "e": {
+  "5": {
     "English": "Gooseberries",
     "Japanese": "スグリ",
     "Recovery": 2,
@@ -49,7 +59,7 @@
     "Make": true,
     "Other": null
   },
-  "f": {
+  "6": {
     "English": "Psilocybe Mushroom",
     "Japanese": "シビレタケ",
     "Recovery": 3,
@@ -59,7 +69,7 @@
     "Make": true,
     "Other": null
   },
-  "g": {
+  "7": {
     "English": "",
     "Japanese": "",
     "Recovery": 0,
