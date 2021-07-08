@@ -4,9 +4,9 @@
   
  </head>
  <body>
-  <form method="post">
+  <form action="#" onsubmit="return rel();" name="nam">
     <select>
-      <option value="a">ほ乳瓶</option>
+      <option value="1">ほ乳瓶</option>
     </select>
     <button type="submit">SUBMIT!</button>
   </form>
@@ -16,5 +16,16 @@
   <div id="size"></div>
   <div id="other"></div>
   <script src="script.js"></script>
+  <script>
+  function rel() {
+  num = document.nam.elements[0]
+  document.getElementById("name").innerHTML = craft[num][lang];
+  document.getElementById("recovery").innerHTML = craft[num]["Recovery"];
+  document.getElementById("amount").innerHTML = craft[num]["Amount"];
+  document.getElementById("size").innerHTML = craft[num]["Size"];
+  document.getElementById("other").innerHTML = craft[num]["Other"];
+  return false;
+  }
+  </script>
  </body>
 </html>
