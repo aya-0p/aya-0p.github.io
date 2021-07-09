@@ -12,7 +12,7 @@ function getData() {
     var nw = new XMLHttpRequest();
     var url = new URL('https://script.google.com/macros/s/AKfycbz1wcN8hmiUfsPOewChFVbMzWH_AQRNxvbHkzaArVALQXK9dTEXyx9iPVP8GJRzf7Ar/exec');
     url.searchParams.set('name', worldName);
-    nw.open("GET", url, false);
+    nw.open("GET", url);
     nw.send();
     var res = nw.response;
     window.alert(res);
