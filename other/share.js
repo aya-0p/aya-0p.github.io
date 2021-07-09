@@ -14,8 +14,8 @@ function getData() {
     url.searchParams.set('name', worldName);
     nw.open("GET", url);
     nw.send;
-    xhr.onload = function() {
-        var res = xhr.response;
+    nw.onload = function() {
+        var res = nw.response;
         alert(res);
       };
     return false;
