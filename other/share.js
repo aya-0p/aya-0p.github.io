@@ -10,9 +10,9 @@ for (var i = 0; i < ls.length; i++) {
 function getData() {
     var worldName = window.prompt("受け取るワールド名を入力してください");
     var nw = new XMLHttpRequest();
-    var url = new URL('https://script.google.com/macros/s/AKfycbz1wcN8hmiUfsPOewChFVbMzWH_AQRNxvbHkzaArVALQXK9dTEXyx9iPVP8GJRzf7Ar/exec', false);
+    var url = new URL('https://script.google.com/macros/s/AKfycbz1wcN8hmiUfsPOewChFVbMzWH_AQRNxvbHkzaArVALQXK9dTEXyx9iPVP8GJRzf7Ar/exec');
     url.searchParams.set('name', worldName);
-    nw.open("GET", url);
+    nw.open("GET", url, false);
     nw.responseType = "text";
     nw.send;
     nw.onload = function() {
