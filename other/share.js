@@ -13,7 +13,6 @@ function getData() {
     var url = new URL('https://script.google.com/macros/s/AKfycbz1wcN8hmiUfsPOewChFVbMzWH_AQRNxvbHkzaArVALQXK9dTEXyx9iPVP8GJRzf7Ar/exec');
     url.searchParams.set('name', worldName);
     nw.open("GET", url, false);
-    nw.responseType = "text";
     nw.send;
     nw.onload = function() {
         var res = nw.response;
