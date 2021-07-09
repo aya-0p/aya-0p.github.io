@@ -14,10 +14,8 @@ function getData() {
     url.searchParams.set('name', worldName);
     nw.open("GET", url, false);
     nw.send();
-    nw.onload = function() {
-        var res = nw.response;
-        window.alert(res);
-      };
+    var res = nw.response;
+    window.alert(res);
     return false;
 }
 function postData() {
