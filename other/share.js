@@ -9,12 +9,14 @@ for (var i = 0; i < ls.length; i++) {
 }
 function sleep(msec) {
     return new Promise(function(resolve) {
-  
-       setTimeout(function() {resolve()}, msec);
-  
+        setTimeout(function() {resolve()}, msec);
     })
  }
 async function getData() {
+    getData2();
+    return false;
+}
+async function getData2() {
     var worldName = window.prompt("受け取るワールド名を入力してください");
     var nw = new XMLHttpRequest();
     var url = new URL('https://script.google.com/macros/s/AKfycbz1wcN8hmiUfsPOewChFVbMzWH_AQRNxvbHkzaArVALQXK9dTEXyx9iPVP8GJRzf7Ar/exec');
@@ -24,7 +26,6 @@ async function getData() {
     await sleep(5000);
     var res = nw.response;
     window.alert(res);
-    return false;
 }
 function postData() {
     return false;
