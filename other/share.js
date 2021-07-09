@@ -17,7 +17,7 @@ function getData() {
     nw.send;
     nw.onload = function() {
         var res = nw.response;
-        alert(res);
+        window.alert(res);
       };
     return false;
 }
