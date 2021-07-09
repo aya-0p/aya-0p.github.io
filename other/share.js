@@ -7,7 +7,13 @@ var ls = dList.splice(1,dList.length - 1);
 for (var i = 0; i < ls.length; i++) {
     document.getElementById("share").innerHTML += `<option value="` + ls[i] + `">` + ls[i] + `</option>`;
 }
-const _sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+function sleep(msec) {
+    return new Promise(function(resolve) {
+  
+       setTimeout(function() {resolve()}, msec);
+  
+    })
+ }
 async function getData() {
     var worldName = window.prompt("受け取るワールド名を入力してください");
     var nw = new XMLHttpRequest();
@@ -15,7 +21,7 @@ async function getData() {
     url.searchParams.set('name', worldName);
     nw.open("GET", url);
     nw.send();
-    await _sleep(5000);
+    await sleep(5000);
     var res = nw.response;
     window.alert(res);
     return false;
