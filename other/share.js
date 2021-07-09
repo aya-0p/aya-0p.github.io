@@ -7,13 +7,15 @@ var ls = dList.splice(1,dList.length - 1);
 for (var i = 0; i < ls.length; i++) {
     document.getElementById("share").innerHTML += `<option value="` + ls[i] + `">` + ls[i] + `</option>`;
 }
-function getData() {
+const _sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+async function getData() {
     var worldName = window.prompt("受け取るワールド名を入力してください");
     var nw = new XMLHttpRequest();
     var url = new URL('https://script.google.com/macros/s/AKfycbz1wcN8hmiUfsPOewChFVbMzWH_AQRNxvbHkzaArVALQXK9dTEXyx9iPVP8GJRzf7Ar/exec');
     url.searchParams.set('name', worldName);
     nw.open("GET", url);
     nw.send();
+    await _sleep(5000);
     var res = nw.response;
     window.alert(res);
     return false;
