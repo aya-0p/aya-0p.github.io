@@ -28,7 +28,12 @@ async function getData2() {
     nw.send();
     await sleep(5000);
     var res = nw.response;
-    window.alert(res);
+    var wN = LoadProc();
+    localStorage.setItem(wN,JSON.stringify(res));
+    var n = JSON.parse(localStorage.getItem("document_list"))
+    n.push(wN);
+    localStorage.setItem("document_list",n);
+    //window.alert(res);
     return false;
 }
 async function postData() {
@@ -57,3 +62,13 @@ async function postData2(e) {
     }
     return false;
 }
+function LoadProc() {
+    var now = new Date();
+    var Year = now.getFullYear();
+    var Month = now.getMonth()+1;
+    var Date = now.getDate();
+    var Hour = now.getHours();
+    var Min = now.getMinutes();
+    var Sec = now.getSeconds();
+    return(Year + "年" + Month + "月" + Date + "日" + Hour + ":" + Min + ":" + Sec);
+  }
