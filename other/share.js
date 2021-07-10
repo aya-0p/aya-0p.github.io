@@ -107,11 +107,11 @@ function del() {
     document.getElementById("b1").innerHTML = "ワールドを削除します。zonest.cn/zが起動しなくなった場合はお使いください";
     document.getElementById("b2").innerHTML = null;
     document.getElementById("b4").innerHTML = null;
-    document.getElementById("b3").innerHTML = '<form action="#" onsubmit="return delData()" name="name"><label><select name="opts2" size="4"><optgroup label="削除するワールドを以下から選択" id="dele"></optgroup></select><br><button type="submit">削除</button></label></form><br>';
+    document.getElementById("b3").innerHTML = '<form action="#" onsubmit="return delData()" name="nam"><label><select name="opts2" size="4"><optgroup label="削除するワールドを以下から選択" id="del"></optgroup></select><br><button type="submit">削除</button></label></form><br>';
     var dList = JSON.parse(localStorage.getItem("document_list"));
     var ls = dList.splice(1,dList.length - 1);
     for (var i = 0; i < ls.length; i++) {
-        document.getElementById("dele").innerHTML += `<option value="` + ls[i] + `">` + ls[i] + `</option>`;
+        document.getElementById("del").innerHTML += `<option value="` + ls[i] + `">` + ls[i] + `</option>`;
     }
     return false;
 }
@@ -120,7 +120,7 @@ function delData() {
     document.getElementById("b2").innerHTML = null;
     document.getElementById("b3").innerHTML = null;
     document.getElementById("b4").innerHTML = null;
-    var delName = document.name.elements[0].value;
+    var delName = document.nam.elements[0].value;
     var an = window.prompt("'" + delName + "'を削除します\nよろしければ'ok'と入力してください");
     if (an == "ok") {
         var n = JSON.parse(localStorage.getItem("document_list"));
