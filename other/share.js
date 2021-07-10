@@ -19,7 +19,7 @@ async function getData() {
 }
 async function getData2() {
     var worldName = window.prompt("ダウンロードするワールド名を入力してください");
-    if (worldName == "") {
+    if (worldName == ""||worldName == null||worldName == undefined) {
         window.alert("中止しました");
         document.getElementById("b1").innerHTML = null;
         document.getElementById("b2").innerHTML = null;
@@ -51,6 +51,7 @@ async function getData2() {
         document.getElementById("b1").innerHTML = '<p>以下から選んでください</p><form action="#" onsubmit="return getData()"><label><button type="submit">ダウンロードする</button></label></form><br>';
         document.getElementById("b2").innerHTML = '<form action="#" onsubmit="return postData()" name="nam"><label><select name="opts" size="4"><optgroup label="アップロードする--ワールドを以下から選択" id="share"></optgroup></select><br><button type="submit">決定</button></label></form><br>'
         document.getElementById("b3").innerHTML = '<form action="http://zonest.cn/z/"><label><button type="submit" id="rev">元の画面に戻る</button></label></form>'
+        document.getElementById("b4").innerHTML = '<br><br><br><br><br><form action="#" onsubmit="return del()"><label><button type="submit">ワールドを強制削除する</button></label></form>'
         var dList = JSON.parse(localStorage.getItem("document_list"));
         var ls = dList.splice(1,dList.length - 1);
         for (var i = 0; i < ls.length; i++) {
@@ -65,6 +66,7 @@ async function getData2() {
         window.alert("ダウンロードされました\n保存名は保存時の時刻です");
         document.getElementById("b1").innerHTML = '<p>以下から選んでください</p><form action="#" onsubmit="return getData()"><label><button type="submit">ダウンロードする</button></label></form><br>';
         document.getElementById("b2").innerHTML = '<form action="#" onsubmit="return postData()" name="nam"><label><select name="opts" size="4"><optgroup label="アップロードする--ワールドを以下から選択" id="share"></optgroup></select><br><button type="submit">決定</button></label></form><br>'
+        document.getElementById("b4").innerHTML = '<br><br><br><br><br><form action="#" onsubmit="return del()"><label><button type="submit">ワールドを強制削除する</button></label></form>'
         document.getElementById("b3").innerHTML = '<form action="http://zonest.cn/z/"><label><button type="submit" id="rev">元の画面に戻る</button></label></form>'
         var dList = JSON.parse(localStorage.getItem("document_list"));
         var ls = dList.splice(1,dList.length - 1);
@@ -130,6 +132,7 @@ for (var i = 0; i < ls.length; i++) {
     }
     document.getElementById("b1").innerHTML = '<p>以下から選んでください</p><form action="#" onsubmit="return getData()"><label><button type="submit">ダウンロードする</button></label></form><br>';
     document.getElementById("b2").innerHTML = '<form action="#" onsubmit="return postData()" name="nam"><label><select name="opts" size="4"><optgroup label="アップロードする--ワールドを以下から選択" id="share"></optgroup></select><br><button type="submit">決定</button></label></form><br>'
+    document.getElementById("b4").innerHTML = '<br><br><br><br><br><form action="#" onsubmit="return del()"><label><button type="submit">ワールドを強制削除する</button></label></form>'
     document.getElementById("b3").innerHTML = '<form action="http://zonest.cn/z/"><label><button type="submit" id="rev">元の画面に戻る</button></label></form>'
     var dList = JSON.parse(localStorage.getItem("document_list"));
     var ls = dList.splice(1,dList.length - 1);
