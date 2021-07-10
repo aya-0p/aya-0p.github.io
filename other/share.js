@@ -126,8 +126,8 @@ function delData() {
     if (an == "ok") {
         var n = JSON.parse(localStorage.getItem("document_list"));
         var d = n.indexOf(delName);
-        var re = n.splice(d+1, 1);
-        localStorage.setItem("document_list",JSON.stringify(re));
+        n.splice(d, 1);
+        localStorage.setItem("document_list",JSON.stringify(n));
     }
     window.alert("削除されました");
     document.getElementById("b1").innerHTML = '<p>以下から選んでください</p><form action="#" onsubmit="return getData()"><label><button type="submit">ダウンロードする</button></label></form><br>';
