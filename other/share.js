@@ -61,7 +61,7 @@ async function postData() {
     return false;
 }
 async function postData2(e) {
-    var wName = window.prompt("保存する名前を入力してください\n注意：よく使われそうな名前は使わないでください、ほかの人から上書き保存される可能性があります");
+    var wName = window.prompt("保存する名前を入力してください\nこの名前はワールドを受け取るときに使います\n注意：よく使われそうな名前は使わないでください、ほかの人から上書き保存される可能性があります");
     document.getElementById("b1").innerHTML = "しばらくお待ちください...";
     document.getElementById("b2").innerHTML = null;
     document.getElementById("b3").innerHTML = null;
@@ -72,9 +72,9 @@ async function postData2(e) {
     xl.send(JSON.stringify(datas));
     var res = xl.response;
     if (res == 1) {
-        window.alert("ワールドは上書き保存されました");
+        window.alert("ワールドは上書き保存されました\n保存名は保存時の時刻です");
     } else if (res == 0) {
-        window.alert("ワールドは新規に保存されました");
+        window.alert("ワールドは新規に保存されました\n保存名は保存時の時刻です");
     } else {
         console.log("post error");
         console.log("error id=" + res);
