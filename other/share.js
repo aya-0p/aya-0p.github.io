@@ -36,6 +36,9 @@ async function postData() {
     return false;
 }
 async function postData2(e) {
+    document.getElementById("b1").innerHTML = "しばらくお待ちください...";
+    document.getElementById("b2").innerHTML = null;
+    document.getElementById("b3").innerHTML = null;
     var xl = new XMLHttpRequest();
     xl.open("POST", "https://script.google.com/macros/s/AKfycbz1wcN8hmiUfsPOewChFVbMzWH_AQRNxvbHkzaArVALQXK9dTEXyx9iPVP8GJRzf7Ar/exec", false);
     xl.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
