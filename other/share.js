@@ -36,13 +36,14 @@ async function postData() {
     return false;
 }
 async function postData2(e) {
+    var wName = window.prompt("保存する名前を入力してください\n注意：よく使われそうな名前は使わないでください、ほかの人から上書き保存される可能性があります");
     document.getElementById("b1").innerHTML = null;
     document.getElementById("b2").innerHTML = null;
     document.getElementById("b3").innerHTML = '<form action="#"><label><button type="submit" id="rev">元の画面に戻る</button></label></form>';
     var xl = new XMLHttpRequest();
     xl.open("POST", "https://script.google.com/macros/s/AKfycbz1wcN8hmiUfsPOewChFVbMzWH_AQRNxvbHkzaArVALQXK9dTEXyx9iPVP8GJRzf7Ar/exec", false);
     xl.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
-    var datas = {name:e, data:JSON.parse(localStorage.getItem(e))};
+    var datas = {name:wName, data:JSON.parse(localStorage.getItem(e))};
     xl.send(JSON.stringify(datas));
     var res = xl.response;
     if (res == 1) {
