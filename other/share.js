@@ -22,6 +22,7 @@ async function getData2() {
     document.getElementById("b1").innerHTML = "しばらくお待ちください...";
     document.getElementById("b2").innerHTML = null;
     document.getElementById("b3").innerHTML = null;
+    document.getElementById("b4").innerHTML = null;
     var nw = new XMLHttpRequest();
     var url = new URL('https://script.google.com/macros/s/AKfycbz1wcN8hmiUfsPOewChFVbMzWH_AQRNxvbHkzaArVALQXK9dTEXyx9iPVP8GJRzf7Ar/exec');
     url.searchParams.set('name', worldName);
@@ -66,6 +67,7 @@ async function postData2(e) {
     document.getElementById("b1").innerHTML = "しばらくお待ちください...";
     document.getElementById("b2").innerHTML = null;
     document.getElementById("b3").innerHTML = null;
+    document.getElementById("b4").innerHTML = null;
     var xl = new XMLHttpRequest();
     xl.open("POST", "https://script.google.com/macros/s/AKfycbz1wcN8hmiUfsPOewChFVbMzWH_AQRNxvbHkzaArVALQXK9dTEXyx9iPVP8GJRzf7Ar/exec", false);
     xl.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
@@ -104,7 +106,8 @@ function LoadProc() {
 function del() {
     document.getElementById("b1").innerHTML = "ワールドを削除します。zonest.cn/zが起動しなくなった場合はお使いください";
     document.getElementById("b2").innerHTML = null;
-    document.getElementById("b3").innerHTML = '<form action="#" onsubmit="return delData()" name="name"><label><select name="opts" size="4"><optgroup label="削除するワールドを以下から選択" id="dele"></optgroup></select><br><button type="submit">削除</button></label></form><br>';
+    document.getElementById("b4").innerHTML = null;
+    document.getElementById("b3").innerHTML = '<form action="#" onsubmit="return delData()" name="name"><label><select name="opts2" size="4"><optgroup label="削除するワールドを以下から選択" id="dele"></optgroup></select><br><button type="submit">削除</button></label></form><br>';
     var dList = JSON.parse(localStorage.getItem("document_list"));
     var ls = dList.splice(1,dList.length - 1);
     for (var i = 0; i < ls.length; i++) {
@@ -116,6 +119,7 @@ function delData() {
     document.getElementById("b1").innerHTML = "しばらくお待ちください...";
     document.getElementById("b2").innerHTML = null;
     document.getElementById("b3").innerHTML = null;
+    document.getElementById("b4").innerHTML = null;
     var delName = document.name.elements[0].value;
     var an = window.prompt("'" + delName + "'を削除します\nよろしければ'ok'と入力してください");
     if (an == "ok") {
