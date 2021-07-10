@@ -19,6 +19,9 @@ async function getData() {
 }
 async function getData2() {
     var worldName = window.prompt("ダウンロードするワールド名を入力してください");
+    if (worldName == "") {
+        window.alert("中止しました");
+    } else {
     document.getElementById("b1").innerHTML = "しばらくお待ちください...";
     document.getElementById("b2").innerHTML = null;
     document.getElementById("b3").innerHTML = null;
@@ -56,6 +59,7 @@ async function getData2() {
             document.getElementById("share").innerHTML += `<option value="` + ls[i] + `">` + ls[i] + `</option>`;
         }
     }
+}
     return false;
 }
 async function postData() {
@@ -64,6 +68,9 @@ async function postData() {
 }
 async function postData2(e) {
     var wName = window.prompt("アップロードする名前を入力してください\nこの名前はワールドをダウンロードするときに使います\n注意：よく使われそうな名前は使わないでください、ほかの人から上書き保存される可能性があります");
+    if (wName == "") {
+        window.alert("中止しました");
+    } else {
     document.getElementById("b1").innerHTML = "しばらくお待ちください...";
     document.getElementById("b2").innerHTML = null;
     document.getElementById("b3").innerHTML = null;
@@ -92,6 +99,7 @@ async function postData2(e) {
         document.getElementById("share").innerHTML += `<option value="` + ls[i] + `">` + ls[i] + `</option>`;
     }
     return false;
+}
 }
 function LoadProc() {
     var now = new Date();
