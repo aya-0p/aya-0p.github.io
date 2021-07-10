@@ -37,8 +37,11 @@ async function postData() {
 }
 async function postData2(e) {
     var xl = new XMLHttpRequest();
-    xl.open("POST", "https://script.google.com/macros/s/AKfycbz1wcN8hmiUfsPOewChFVbMzWH_AQRNxvbHkzaArVALQXK9dTEXyx9iPVP8GJRzf7Ar/exec");
+    xl.open("POST", "https://script.google.com/macros/s/AKfycbz1wcN8hmiUfsPOewChFVbMzWH_AQRNxvbHkzaArVALQXK9dTEXyx9iPVP8GJRzf7Ar/exec", false);
+    xl.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
     xl.send("name="+e+"&data="+JSON.parse(localStorage.getItem(e)));
     await sleep(5000);
+    var res = xl.response;
+    window.alert(res);
     return false;
 }
