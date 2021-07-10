@@ -120,6 +120,7 @@ function delData() {
     document.getElementById("b2").innerHTML = null;
     document.getElementById("b3").innerHTML = null;
     document.getElementById("b4").innerHTML = null;
+    console.log(document.nam);
     var delName = document.nam.elements[0].value;
     var an = window.prompt("'" + delName + "'を削除します\nよろしければ'ok'と入力してください");
     if (an == "ok") {
