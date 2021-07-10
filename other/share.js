@@ -116,7 +116,7 @@ function del() {
     return false;
 }
 function delData() {
-    console.log(document.nam);
+    console.log(document.nam.elements[0].value);
     var delName = document.nam.elements[0].value;
     if (delName == null) {
         window.alert("削除されませんでした");
@@ -131,8 +131,10 @@ function delData() {
             var d = n.indexOf(delName);
             n.splice(d, 1);
             localStorage.setItem("document_list",JSON.stringify(n));
+            window.alert("削除されました");
+        }　else {
+            window.alert("削除されませんでした");
         }
-        window.alert("削除されました");
     }
     document.getElementById("b1").innerHTML = '<p>以下から選んでください</p><form action="#" onsubmit="return getData()"><label><button type="submit">ダウンロードする</button></label></form><br>';
     document.getElementById("b2").innerHTML = '<form action="#" onsubmit="return postData()" name="nam"><label><select name="opts" size="4"><optgroup label="アップロードする--ワールドを以下から選択" id="share"></optgroup></select><br><button type="submit">決定</button></label></form><br>'
