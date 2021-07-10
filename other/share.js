@@ -67,9 +67,9 @@ function LoadProc() {
     var now = new Date();
     var Year = now.getFullYear();
     var Month = now.getMonth()+1;
-    var Date = now.getDate();
+    var date = now.getDate();
     var Hour = now.getHours();
     var Min = now.getMinutes();
     var Sec = now.getSeconds();
-    return(Year + "年" + Month + "月" + Date + "日" + Hour + ":" + Min + ":" + Sec);
+    return(Year + "年" + Month + "月" + date + "日" + Hour + ":" + Min + ":" + Sec);
   }
