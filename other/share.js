@@ -44,7 +44,6 @@ async function postData2(e) {
     xl.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
     var datas = {name:e, data:JSON.parse(localStorage.getItem(e))};
     xl.send(JSON.stringify(datas));
-    await sleep(5000);
     var res = xl.response;
     window.alert(res);
     return false;
