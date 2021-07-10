@@ -35,16 +35,24 @@ async function getData2() {
         document.getElementById("b3").innerHTML = '<form action="#"><label><button type="submit" id="rev">元の画面に戻る</button></label></form>'
         var dList = JSON.parse(localStorage.getItem("document_list"));
         var ls = dList.splice(1,dList.length - 1);
-for (var i = 0; i < ls.length; i++) {
-    document.getElementById("share").innerHTML += `<option value="` + ls[i] + `">` + ls[i] + `</option>`;
-}
+        for (var i = 0; i < ls.length; i++) {
+            document.getElementById("share").innerHTML += `<option value="` + ls[i] + `">` + ls[i] + `</option>`;
+        }
     } else {
-    var wN = LoadProc();
-    localStorage.setItem(wN,res);//JSON.stringify(res)
-    var n = JSON.parse(localStorage.getItem("document_list"));
-    n.push(wN);
-    localStorage.setItem("document_list",JSON.stringify(n));
-    //window.alert(res);
+        var wN = LoadProc();
+        localStorage.setItem(wN,res);//JSON.stringify(res)
+        var n = JSON.parse(localStorage.getItem("document_list"));
+        n.push(wN);
+        localStorage.setItem("document_list",JSON.stringify(n));
+        window.alert("保存されました");
+        document.getElementById("b1").innerHTML = '<p>以下から選んでください</p><form action="#" onsubmit="return getData()"><label><button type="submit">受け取る</button></label></form><br>';
+        document.getElementById("b2").innerHTML = '<form action="#" onsubmit="return postData()" name="nam"><label><select name="opts" size="4"><optgroup label="共有する--ワールドを以下から選択" id="share"></optgroup></select><br><button type="submit">決定</button></label></form><br>'
+        document.getElementById("b3").innerHTML = '<form action="#"><label><button type="submit" id="rev">元の画面に戻る</button></label></form>'
+        var dList = JSON.parse(localStorage.getItem("document_list"));
+        var ls = dList.splice(1,dList.length - 1);
+        for (var i = 0; i < ls.length; i++) {
+            document.getElementById("share").innerHTML += `<option value="` + ls[i] + `">` + ls[i] + `</option>`;
+        }
     }
     return false;
 }
