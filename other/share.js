@@ -29,6 +29,7 @@ async function getData2() {
     await sleep(5000);
     var res = nw.response;
     window.alert(res);
+    return false;
 }
 async function postData() {
     postData2(document.nam.elements[0].value);
@@ -36,4 +37,5 @@ async function postData() {
 }
 async function postData2(e) {
     window.alert(e);
+    return false;
 }
