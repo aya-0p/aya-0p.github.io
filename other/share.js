@@ -29,11 +29,10 @@ async function getData2() {
     await sleep(5000);
     var res = nw.response;
     var wN = LoadProc();
-    localStorage.setItem(wN,JSON.stringify(res));
+    localStorage.setItem(wN,res);//JSON.stringify(res)
     var n = JSON.parse(localStorage.getItem("document_list"));
-    nn = n.push(wN);
-    localStorage.removeItem("document_list");
-    localStorage.setItem("document_list",JSON.stringify(nn));
+    n.push(wN);
+    localStorage.setItem("document_list",JSON.stringify(n));
     //window.alert(res);
     return false;
 }
