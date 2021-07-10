@@ -118,7 +118,7 @@ function del() {
 function delData() {
     console.log(document.nam.elements[0].value);
     var delName = document.nam.elements[0].value;
-    if (delName == null) {
+    if (delName == "") {
         window.alert("削除されませんでした");
     } else {
         document.getElementById("b1").innerHTML = "しばらくお待ちください...";
