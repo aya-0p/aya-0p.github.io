@@ -126,7 +126,7 @@ function delData() {
     if (an == "ok") {
         var n = JSON.parse(localStorage.getItem("document_list"));
         var d = n.indexOf(delName);
-        var re = n.splice(d, 1);
+        var re = n.splice(d+1, 1);
         localStorage.setItem("document_list",JSON.stringify(re));
     }
     window.alert("削除されました");
