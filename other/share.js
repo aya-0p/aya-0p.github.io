@@ -21,6 +21,15 @@ async function getData2() {
     var worldName = window.prompt("ダウンロードするワールド名を入力してください");
     if (worldName == "") {
         window.alert("中止しました");
+        document.getElementById("b1").innerHTML = '<p>以下から選んでください</p><form action="#" onsubmit="return getData()"><label><button type="submit">ダウンロードする</button></label></form><br>';
+        document.getElementById("b2").innerHTML = '<form action="#" onsubmit="return postData()" name="nam"><label><select name="opts" size="4"><optgroup label="アップロードする--ワールドを以下から選択" id="share"></optgroup></select><br><button type="submit">決定</button></label></form><br>'
+        document.getElementById("b3").innerHTML = '<form action="http://zonest.cn/z/"><label><button type="submit" id="rev">元の画面に戻る</button></label></form>'
+        document.getElementById("b4").innerHTML = '<br><br><br><br><br><form action="#" onsubmit="return del()"><label><button type="submit">ワールドを強制削除する</button></label></form>'
+        var dList = JSON.parse(localStorage.getItem("document_list"));
+        var ls = dList.splice(1,dList.length - 1);
+        for (var i = 0; i < ls.length; i++) {
+            document.getElementById("share").innerHTML += `<option value="` + ls[i] + `">` + ls[i] + `</option>`;
+        }
     } else {
     document.getElementById("b1").innerHTML = "しばらくお待ちください...";
     document.getElementById("b2").innerHTML = null;
@@ -67,9 +76,30 @@ async function postData() {
     return false;
 }
 async function postData2(e) {
+    if (e == null) {
+        window.alert("中止しました");
+        document.getElementById("b1").innerHTML = '<p>以下から選んでください</p><form action="#" onsubmit="return getData()"><label><button type="submit">ダウンロードする</button></label></form><br>';
+document.getElementById("b2").innerHTML = '<form action="#" onsubmit="return postData()" name="nam"><label><select name="opts" size="4"><optgroup label="アップロードする--ワールドを以下から選択" id="share"></optgroup></select><br><button type="submit">決定</button></label></form><br>'
+document.getElementById("b3").innerHTML = '<form action="http://zonest.cn/z/"><label><button type="submit" id="rev">元の画面に戻る</button></label></form>'
+document.getElementById("b4").innerHTML = '<br><br><br><br><br><form action="#" onsubmit="return del()"><label><button type="submit">ワールドを強制削除する</button></label></form>'
+var dList = JSON.parse(localStorage.getItem("document_list"));
+var ls = dList.splice(1,dList.length - 1);
+for (var i = 0; i < ls.length; i++) {
+    document.getElementById("share").innerHTML += `<option value="` + ls[i] + `">` + ls[i] + `</option>`;
+}
+    } else {
     var wName = window.prompt("アップロードする名前を入力してください\nこの名前はワールドをダウンロードするときに使います\n注意：よく使われそうな名前は使わないでください、ほかの人から上書き保存される可能性があります");
     if (wName == "") {
         window.alert("中止しました");
+        document.getElementById("b1").innerHTML = '<p>以下から選んでください</p><form action="#" onsubmit="return getData()"><label><button type="submit">ダウンロードする</button></label></form><br>';
+document.getElementById("b2").innerHTML = '<form action="#" onsubmit="return postData()" name="nam"><label><select name="opts" size="4"><optgroup label="アップロードする--ワールドを以下から選択" id="share"></optgroup></select><br><button type="submit">決定</button></label></form><br>'
+document.getElementById("b3").innerHTML = '<form action="http://zonest.cn/z/"><label><button type="submit" id="rev">元の画面に戻る</button></label></form>'
+document.getElementById("b4").innerHTML = '<br><br><br><br><br><form action="#" onsubmit="return del()"><label><button type="submit">ワールドを強制削除する</button></label></form>'
+var dList = JSON.parse(localStorage.getItem("document_list"));
+var ls = dList.splice(1,dList.length - 1);
+for (var i = 0; i < ls.length; i++) {
+    document.getElementById("share").innerHTML += `<option value="` + ls[i] + `">` + ls[i] + `</option>`;
+}
     } else {
     document.getElementById("b1").innerHTML = "しばらくお待ちください...";
     document.getElementById("b2").innerHTML = null;
@@ -99,6 +129,7 @@ async function postData2(e) {
         document.getElementById("share").innerHTML += `<option value="` + ls[i] + `">` + ls[i] + `</option>`;
     }
     return false;
+}
 }
 }
 function LoadProc() {
