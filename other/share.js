@@ -99,7 +99,7 @@ for (var i = 0; i < ls.length; i++) {
 }
     } else {
     var wName = window.prompt("アップロードする名前を入力してください\nこの名前はワールドをダウンロードするときに使います\n注意：よく使われそうな名前は使わないでください、ほかの人から上書き保存される可能性があります");
-    if (wName == "") {
+    if (wName == ""||wName == null||wName == undefined) {
         window.alert("中止しました");
         document.getElementById("b1").innerHTML = '<p>以下から選んでください</p><form action="#" onsubmit="return getData()"><label><button type="submit">ダウンロードする</button></label></form><br>';
 document.getElementById("b2").innerHTML = '<form action="#" onsubmit="return postData()" name="nam"><label><select name="opts" size="4"><optgroup label="アップロードする--ワールドを以下から選択" id="share"></optgroup></select><br><button type="submit">決定</button></label></form><br>'
