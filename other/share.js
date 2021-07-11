@@ -1,5 +1,5 @@
-//developer ver 0.1.5
-console.log("developer ver 0.1.5");
+//developer ver 0.1.6
+console.log("developer ver 0.1.6");
 (document.getElementsByTagName("body"))[0].innerHTML = '<div id="b1"></div><br><div id=b2></div><div id="b3"></div><div id="b4"></div><footer><div>Version 0.1</div><style>footer{position: absolute;bottom: 0;}</style></footer>';
 function setDefault() {
     document.getElementById("b1").innerHTML = '<p>以下から選んでください</p><form action="#" onsubmit="return getData()"><label><button type="submit">ダウンロードする</button></label></form><br>';
@@ -25,7 +25,7 @@ function setDel() {
     document.getElementById("b1").innerHTML = "ワールドを削除します。zonest.cn/zが起動しなくなった場合はお使いください";
         document.getElementById("b2").innerHTML = null;
         document.getElementById("b4").innerHTML = null;
-        document.getElementById("b3").innerHTML = '<form action="#" onsubmit="return delData()" name="nam"><label><select name="opts2" id="del"><option value="" selected>削除するワールドを以下から選択</option></select><br><button type="submit">削除</button></label></form><br>';
+        document.getElementById("b3").innerHTML = '<form action="#" onsubmit="return delData()" name="nam"><label><select name="opts" id="share"><option value="" selected>削除するワールドを以下から選択</option></select><br><button type="submit">削除</button></label></form><br>';
 }
 setDefault();
 function sleep(msec) {
