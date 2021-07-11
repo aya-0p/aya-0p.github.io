@@ -1,9 +1,9 @@
-//developer ver 0.1.7
-console.log("developer ver 0.1.7");
+//developer ver 0.1.8
+console.log("developer ver 0.1.8");
 (document.getElementsByTagName("body"))[0].innerHTML = '<div id="b1"></div><br><div id=b2></div><div id="b3"></div><div id="b4"></div><footer><div>Version 0.1</div><style>footer{position: absolute;bottom: 0;}</style></footer>';
 function setDefault() {
     document.getElementById("b1").innerHTML = '<p>以下から選んでください</p><form action="#" onsubmit="return getData()"><label><button type="submit">ダウンロードする</button></label></form><br>';
-    document.getElementById("b2").innerHTML = '<form action="#" onsubmit="return postData()" name="nam"><label><select name="opts" id="share"><option value="" selected>アップロードする--ワールドを以下から選択</option></select><br><button type="submit">決定</button></label></form><br>'
+    document.getElementById("b2").innerHTML = '<form action="#" onsubmit="return postData()" name="nam"><label><select name="opts" id="share"><option value="" selected>アップロードする--ワールドを以下から選択</option></select><br><br><button type="submit">決定</button></label></form><br>'
     document.getElementById("b3").innerHTML = '<form action="http://zonest.cn/z/"><label><button type="submit" id="rev">元の画面に戻る</button></label></form>'
     document.getElementById("b4").innerHTML = '<br><br><br><br><br><form action="#" onsubmit="return del()"><label><button type="submit">ワールドを強制削除する</button></label></form>'
     setWorld();
@@ -23,9 +23,9 @@ function plWait() {
 }
 function setDel() {
     document.getElementById("b1").innerHTML = "ワールドを削除します。zonest.cn/zが起動しなくなった場合はお使いください";
-        document.getElementById("b2").innerHTML = null;
-        document.getElementById("b4").innerHTML = '<form action="#" onsubmit="return delData()" name="nam"><label><select name="opts" id="share"><option value="" selected>削除するワールドを以下から選択</option></select><br><button type="submit">削除</button></label></form><br>';
-        document.getElementById("b3").innerHTML = '<form action="#" onsubmit="setDefault();return false"><label><button type="submit" id="rev">1つ前の画面に戻る</button></label></form>';
+    document.getElementById("b2").innerHTML = null;
+    document.getElementById("b3").innerHTML = '<form action="#" onsubmit="return delData()" name="nam"><label><select name="opts" id="share"><option value="" selected>削除するワールドを以下から選択</option></select><br><br><button type="submit">削除</button></label></form><br>';
+    document.getElementById("b4").innerHTML = '<br><br><form action="#" onsubmit="setDefault();return false"><label><button type="submit" id="rev">1つ前の画面に戻る</button></label></form>';
 }
 setDefault();
 function sleep(msec) {
