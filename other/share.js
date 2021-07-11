@@ -1,5 +1,5 @@
-//developer ver 0.1.2
-console.log("developer ver 0.1.2");
+//developer ver 0.1.3
+console.log("developer ver 0.1.3");
 (document.getElementsByTagName("body"))[0].innerHTML = '<div id="b1"></div><br><div id=b2></div><div id="b3"></div><div id="b4"></div><footer><div>Version 0.1</div><style>footer{position: absolute;bottom: 0;}</style></footer>';
 document.getElementById("b1").innerHTML = '<p>以下から選んでください</p><form action="#" onsubmit="return getData()"><label><button type="submit">ダウンロードする</button></label></form><br>';
 document.getElementById("b2").innerHTML = '<form action="#" onsubmit="return postData()" name="nam"><label><select name="opts" id="share"><option value="" selected>アップロードする--ワールドを以下から選択</option></select><br><button type="submit">決定</button></label></form><br>'
@@ -179,7 +179,15 @@ function delData() {
     console.log(document.nam.elements[0].value);
     var delName = document.nam.elements[0].value;
     if (delName == "") {
-        window.alert("削除されませんでした");
+        document.getElementById("b1").innerHTML = "ワールドを削除します。zonest.cn/zが起動しなくなった場合はお使いください";
+        document.getElementById("b2").innerHTML = null;
+        document.getElementById("b4").innerHTML = null;
+        document.getElementById("b3").innerHTML = '<form action="#" onsubmit="return delData()" name="nam"><label><select name="opts2" id="del"><option value="" selected>削除するワールドを以下から選択</option></select><br><button type="submit">削除</button></label></form><br>';
+        var dList = JSON.parse(localStorage.getItem("document_list"));
+        var ls = dList.splice(1, dList.length - 1);
+        for (var i = 0; i < ls.length; i++) {
+            document.getElementById("del").innerHTML += `<option value="` + ls[i] + `">` + ls[i] + `</option>`;
+        }
     } else {
         document.getElementById("b1").innerHTML = "しばらくお待ちください...";
         document.getElementById("b2").innerHTML = null;
@@ -196,15 +204,15 @@ function delData() {
         else {
             window.alert("削除されませんでした");
         }
-    }
-    document.getElementById("b1").innerHTML = '<p>以下から選んでください</p><form action="#" onsubmit="return getData()"><label><button type="submit">ダウンロードする</button></label></form><br>';
-    document.getElementById("b2").innerHTML = '<form action="#" onsubmit="return postData()" name="nam"><label><select name="opts" id="share"><option value="" selected>アップロードする--ワールドを以下から選択</option></select><br><button type="submit">決定</button></label></form><br>'
-    document.getElementById("b3").innerHTML = '<form action="http://zonest.cn/z/"><label><button type="submit" id="rev">元の画面に戻る</button></label></form>'
-    document.getElementById("b4").innerHTML = '<br><br><br><br><br><form action="#" onsubmit="return del()"><label><button type="submit">ワールドを強制削除する</button></label></form>'
-    var dList = JSON.parse(localStorage.getItem("document_list"));
-    var ls = dList.splice(1, dList.length - 1);
-    for (var i = 0; i < ls.length; i++) {
-        document.getElementById("share").innerHTML += `<option value="` + ls[i] + `">` + ls[i] + `</option>`;
+        document.getElementById("b1").innerHTML = '<p>以下から選んでください</p><form action="#" onsubmit="return getData()"><label><button type="submit">ダウンロードする</button></label></form><br>';
+        document.getElementById("b2").innerHTML = '<form action="#" onsubmit="return postData()" name="nam"><label><select name="opts" id="share"><option value="" selected>アップロードする--ワールドを以下から選択</option></select><br><button type="submit">決定</button></label></form><br>'
+        document.getElementById("b3").innerHTML = '<form action="http://zonest.cn/z/"><label><button type="submit" id="rev">元の画面に戻る</button></label></form>'
+        document.getElementById("b4").innerHTML = '<br><br><br><br><br><form action="#" onsubmit="return del()"><label><button type="submit">ワールドを強制削除する</button></label></form>'
+        var dList = JSON.parse(localStorage.getItem("document_list"));
+        var ls = dList.splice(1, dList.length - 1);
+        for (var i = 0; i < ls.length; i++) {
+            document.getElementById("share").innerHTML += `<option value="` + ls[i] + `">` + ls[i] + `</option>`;
+        }
     }
     return false;
 }
