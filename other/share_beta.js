@@ -1,14 +1,15 @@
-//developer ver 0.2.2
-console.log("developer ver 0.2.2");
+//developer ver 0.2.3
+console.log("developer ver 0.2.3");
 if (localStorage.getItem("document_list") == null) {
     localStorage.setItem("document_list", JSON.stringify(["we start"]));
 }
-(document.getElementsByTagName("body"))[0].innerHTML = '<div id="b1"></div><br><div id=b2></div><div id="b3"></div><div id="b4"></div><footer><div>Version 0.2</div><a href="javascript:(function(d,j,s)%7Bs=d.createElement(\'script\');s.src=j;d.body.appendChild(s);%7D)(document,\'https://aya-0p.github.io/other/share_beta.js\')">ベータ版</a><style>footer{position: absolute;bottom: 0;}</style></footer>';
+(document.getElementsByTagName("body"))[0].innerHTML = '<div id="b1"></div><br><div id=b2></div><div id="b3"></div><div id="b35"></div><div id="b4"></div><footer><div>Version 0.2.3</div><a href="javascript:(function(d,j,s)%7Bs=d.createElement(\'script\');s.src=j;d.body.appendChild(s);%7D)(document,\'https://aya-0p.github.io/other/share_beta.js\')">開発版</a><style>footer{position: absolute;bottom: 0;}</style></footer>';
 function setDefault() {
     document.getElementById("b1").innerHTML = '<p>以下から選んでください</p><form action="#" onsubmit="return getData()"><label><button type="submit">ダウンロードする</button></label></form><br>';
-    document.getElementById("b2").innerHTML = '<form action="#" onsubmit="return postData()" name="nam"><label><select name="opts" id="share"><option value="" selected>アップロードする--ワールドを以下から選択</option></select><br><br><button type="submit">決定</button></label></form><br>'
-    document.getElementById("b3").innerHTML = '<form action="http://zonest.cn/z/"><label><button type="submit" id="rev">元の画面に戻る</button></label></form>'
-    document.getElementById("b4").innerHTML = '<br><br><br><br><br><form action="#" onsubmit="return del()"><label><button type="submit">ワールドを強制削除する</button></label></form>'
+    document.getElementById("b2").innerHTML = '<form action="#" onsubmit="return postData()" name="nam"><label><select name="opts" id="share"><option value="" selected>アップロードする--ワールドを以下から選択</option></select><br><br><button type="submit">決定</button></label></form><br>';
+    document.getElementById("b3").innerHTML = '<form action="http://zonest.cn/z/"><label><button type="submit" id="rev">元の画面に戻る</button></label></form>';
+    document.getElementById("b35").innerHTML = '<br><br><form action="#" onsubmit="return addData()"><label><button type="submit">通常では作れない大きさのワールドを生成する</button></label></form><br>';
+    document.getElementById("b4").innerHTML = '<br><br><br><br><br><form action="#" onsubmit="return del()"><label><button type="submit">ワールドを強制削除する</button></label></form>';
     setWorld();
 }
 function setWorld() {
@@ -22,12 +23,14 @@ function plWait() {
     document.getElementById("b1").innerHTML = "しばらくお待ちください...";
     document.getElementById("b2").innerHTML = null;
     document.getElementById("b3").innerHTML = null;
+    document.getElementById("b35").innerHTML = null;
     document.getElementById("b4").innerHTML = null;
 }
 function setDel() {
     document.getElementById("b1").innerHTML = "ワールドを削除します。zonest.cn/zが起動しなくなった場合はお使いください<br>完全消去はされません";
     document.getElementById("b2").innerHTML = null;
     document.getElementById("b3").innerHTML = '<form action="#" onsubmit="return delData()" name="nam"><label><select name="opts" id="share"><option value="" selected>削除するワールドを以下から選択</option></select><br><br><button type="submit">削除</button></label></form><br>';
+    document.getElementById("b35").innerHTML = null;
     document.getElementById("b4").innerHTML = '<br><br><form action="#" onsubmit="setDefault();return false"><label><button type="submit" id="rev">1つ前の画面に戻る</button></label></form>';
 }
 setDefault();
@@ -164,4 +167,22 @@ function delData() {
         setDefault();
     }
     return false;
+}
+function addData() {
+    var t = window.prompt("縦の大きさを入力してください");
+    var y = window.prompt("横の大きさを入力してください");
+    if (t > 0 && t <= 100 && y > 0 && y <= 100) {
+        var w = window.prompt("ワールド名を入力してください");
+        localStorage.setItem(w, JSON.stringify([t,y,"earth_1"]));
+        window.alert("ワールドを生成しました");
+        plWait();
+        setDefault();
+        return false;
+    } else {
+        window.alert("縦または横を1より小さい、または100より大きい数字を指定することはできません");
+        plWait();
+        setDefault();
+        addData();
+        return false;
+    }
 }
