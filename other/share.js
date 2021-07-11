@@ -1,5 +1,5 @@
-//developer ver 0.2.0
-console.log("developer ver 0.2.0");
+//developer ver 0.2.1
+console.log("developer ver 0.2.1");
 if (localStorage.getItem("document_list") == null) {
     localStorage.setItem("document_list", JSON.stringify(["we start"]));
 }
@@ -25,7 +25,7 @@ function plWait() {
     document.getElementById("b4").innerHTML = null;
 }
 function setDel() {
-    document.getElementById("b1").innerHTML = "ワールドを削除します。zonest.cn/zが起動しなくなった場合はお使いください";
+    document.getElementById("b1").innerHTML = "ワールドを削除します。zonest.cn/zが起動しなくなった場合はお使いください<br>完全消去はされません";
     document.getElementById("b2").innerHTML = null;
     document.getElementById("b3").innerHTML = '<form action="#" onsubmit="return delData()" name="nam"><label><select name="opts" id="share"><option value="" selected>削除するワールドを以下から選択</option></select><br><br><button type="submit">削除</button></label></form><br>';
     document.getElementById("b4").innerHTML = '<br><br><form action="#" onsubmit="setDefault();return false"><label><button type="submit" id="rev">1つ前の画面に戻る</button></label></form>';
@@ -61,13 +61,27 @@ async function getData2() {
             window.alert("その名前のワールドは存在しません");
             setDefault();
         } else {
-            var wN = LoadProc();
-            localStorage.setItem(wN, res); //JSON.stringify(res)
-            var n = JSON.parse(localStorage.getItem("document_list"));
-            n.push(wN);
-            localStorage.setItem("document_list", JSON.stringify(n));
-            window.alert("ダウンロードされました\n保存名は保存時の時刻です");
-            setDefault();
+            var wN = window.prompt("保存名を入力してください");
+            if (wN == null||wN == "" || wN == undefined) {
+                var wN = LoadProc();
+                localStorage.setItem(wN, res);
+                var n = JSON.parse(localStorage.getItem("document_list"));
+                n.push(wN);
+                localStorage.setItem("document_list", JSON.stringify(n));
+                window.alert("ダウンロードされました\n保存名は入力がなかったので保存時の時刻です");
+                setDefault();
+            } else if((JSON.parse(localStorage.getItem("document_list"))).indexOf(wN) == -1) {
+                localStorage.setItem(wN, res);
+                var n = JSON.parse(localStorage.getItem("document_list"));
+                n.push(wN);
+                localStorage.setItem("document_list", JSON.stringify(n));
+                window.alert("ダウンロードされました");
+                setDefault();
+            } else {
+                localStorage.setItem(wN, res);
+                window.alert("上書きダウンロードされました");
+                setDefault();
+            }
         }
     }
     return false;
