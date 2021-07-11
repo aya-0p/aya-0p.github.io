@@ -1,5 +1,5 @@
-//developer ver 0.1.4
-console.log("developer ver 0.1.4");
+//developer ver 0.1.5
+console.log("developer ver 0.1.5");
 (document.getElementsByTagName("body"))[0].innerHTML = '<div id="b1"></div><br><div id=b2></div><div id="b3"></div><div id="b4"></div><footer><div>Version 0.1</div><style>footer{position: absolute;bottom: 0;}</style></footer>';
 function setDefault() {
     document.getElementById("b1").innerHTML = '<p>以下から選んでください</p><form action="#" onsubmit="return getData()"><label><button type="submit">ダウンロードする</button></label></form><br>';
@@ -27,7 +27,7 @@ function setDel() {
         document.getElementById("b4").innerHTML = null;
         document.getElementById("b3").innerHTML = '<form action="#" onsubmit="return delData()" name="nam"><label><select name="opts2" id="del"><option value="" selected>削除するワールドを以下から選択</option></select><br><button type="submit">削除</button></label></form><br>';
 }
-setDefalut();
+setDefault();
 function sleep(msec) {
     return new Promise(function(resolve) {
         setTimeout(function() {
@@ -44,7 +44,7 @@ async function getData2() {
     if (worldName == "" || worldName == null || worldName == undefined) {
         window.alert("中止しました");
         plWait();
-        setDefalut();
+        setDefault();
     } else {
         plWait();
         var nw = new XMLHttpRequest();
@@ -56,7 +56,7 @@ async function getData2() {
         var res = nw.response;
         if (res == 0) {
             window.alert("その名前のワールドは存在しません");
-            setDefalut();
+            setDefault();
         } else {
             var wN = LoadProc();
             localStorage.setItem(wN, res); //JSON.stringify(res)
@@ -64,7 +64,7 @@ async function getData2() {
             n.push(wN);
             localStorage.setItem("document_list", JSON.stringify(n));
             window.alert("ダウンロードされました\n保存名は保存時の時刻です");
-            setDefalut();
+            setDefault();
         }
     }
     return false;
@@ -76,12 +76,12 @@ async function postData() {
 async function postData2(e) {
     if (e == null || e == "" || e == undefined) {
         plWait();
-        setDefalut();
+        setDefault();
     } else {
         var wName = window.prompt("アップロードする名前を入力してください\nこの名前はワールドをダウンロードするときに使います\n注意：よく使われそうな名前は使わないでください、ほかの人から上書き保存される可能性があります");
         if (wName == "" || wName == null || wName == undefined) {
             window.alert("中止しました");
-            setDefalut();
+            setDefault();
         } else {
             plWait();
             var xl = new XMLHttpRequest();
@@ -102,7 +102,7 @@ async function postData2(e) {
                 console.log("error id=" + res);
                 window.alert("不明なエラーによりアップロードされませんでした");
             }
-            setDefalut();
+            setDefault();
             return false;
         }
     }
@@ -144,7 +144,7 @@ function delData() {
         else {
             window.alert("削除されませんでした");
         }
-        setDefalut();
+        setDefault();
     }
     return false;
 }
