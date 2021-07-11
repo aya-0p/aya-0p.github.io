@@ -1,9 +1,9 @@
-//developer ver 0.2.3
-console.log("developer ver 0.2.3");
+//developer ver 0.2.4
+console.log("developer ver 0.2.4");
 if (localStorage.getItem("document_list") == null) {
     localStorage.setItem("document_list", JSON.stringify(["we start"]));
 }
-(document.getElementsByTagName("body"))[0].innerHTML = '<div id="b1"></div><br><div id=b2></div><div id="b3"></div><div id="b35"></div><div id="b4"></div><footer><div>Version 0.2.3</div><a href="javascript:(function(d,j,s)%7Bs=d.createElement(\'script\');s.src=j;d.body.appendChild(s);%7D)(document,\'https://aya-0p.github.io/other/share_beta.js\')">開発版</a><style>footer{position: absolute;bottom: 0;}</style></footer>';
+(document.getElementsByTagName("body"))[0].innerHTML = '<div id="b1"></div><br><div id=b2></div><div id="b3"></div><div id="b35"></div><div id="b4"></div><footer><div>Version 0.2.4</div><a href="javascript:(function(d,j,s)%7Bs=d.createElement(\'script\');s.src=j;d.body.appendChild(s);%7D)(document,\'https://aya-0p.github.io/other/share_beta.js\')">開発版を利用する</a><style>footer{position: absolute;bottom: 0;}</style></footer>';
 function setDefault() {
     document.getElementById("b1").innerHTML = '<p>以下から選んでください</p><form action="#" onsubmit="return getData()"><label><button type="submit">ダウンロードする</button></label></form><br>';
     document.getElementById("b2").innerHTML = '<form action="#" onsubmit="return postData()" name="nam"><label><select name="opts" id="share"><option value="" selected>アップロードする--ワールドを以下から選択</option></select><br><br><button type="submit">決定</button></label></form><br>';
@@ -65,13 +65,13 @@ async function getData2() {
             setDefault();
         } else {
             var wN = window.prompt("保存名を入力してください");
-            if (wN == null||wN == "" || wN == undefined) {
+            if (wN == null||wN == "" || wN == undefined || w == "document_list" || w == "file1" || w == "A1") {
                 var wN = LoadProc();
                 localStorage.setItem(wN, res);
                 var n = JSON.parse(localStorage.getItem("document_list"));
                 n.push(wN);
                 localStorage.setItem("document_list", JSON.stringify(n));
-                window.alert("ダウンロードされました\n保存名は入力がなかったので保存時の時刻です");
+                window.alert("ダウンロードされました\n保存名は利用できない名前のため保存時の時刻です");
                 setDefault();
             } else if((JSON.parse(localStorage.getItem("document_list"))).indexOf(wN) == -1) {
                 localStorage.setItem(wN, res);
@@ -173,11 +173,22 @@ function addData() {
     var y = window.prompt("横の大きさを入力してください");
     if (t > 0 && t <= 100 && y > 0 && y <= 100) {
         var w = window.prompt("ワールド名を入力してください");
-        localStorage.setItem(w, JSON.stringify([t,y,"earth_1"]));
-        window.alert("ワールドを生成しました");
-        plWait();
-        setDefault();
-        return false;
+        if (((JSON.parse(localStorage.getItem("document_list"))).indexOf(w) == -1) || w == null || w == "" || w == undefined || w == "document_list" || w == "file1" || w == "A1") {
+            window.alert("そのワールド名で作ることはできません");
+            plWait();
+            setDefault();
+            addData();
+            return false;
+        } else {
+            localStorage.setItem(w, JSON.stringify([y,t,"earth_1"]));
+            var n = JSON.parse(localStorage.getItem("document_list"));
+            n.push(w);
+            localStorage.setItem("document_list", JSON.stringify(n));
+            window.alert("ワールドを生成しました");
+            plWait();
+            setDefault();
+            return false;
+        }
     } else {
         window.alert("縦または横を1より小さい、または100より大きい数字を指定することはできません");
         plWait();
