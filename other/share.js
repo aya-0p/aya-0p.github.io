@@ -1,5 +1,8 @@
-//developer ver 0.1.8
-console.log("developer ver 0.1.8");
+//developer ver 0.1.9
+console.log("developer ver 0.1.9");
+if (localStorage.getItem("document_list") == null) {
+    localStorage.setItem("document_list", JSON.stringify(["we start"]));
+}
 (document.getElementsByTagName("body"))[0].innerHTML = '<div id="b1"></div><br><div id=b2></div><div id="b3"></div><div id="b4"></div><footer><div>Version 0.1</div><style>footer{position: absolute;bottom: 0;}</style></footer>';
 function setDefault() {
     document.getElementById("b1").innerHTML = '<p>以下から選んでください</p><form action="#" onsubmit="return getData()"><label><button type="submit">ダウンロードする</button></label></form><br>';
