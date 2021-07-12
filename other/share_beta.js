@@ -1,9 +1,9 @@
-//developer ver 0.3.1
-console.log("developer ver 0.3.1");
+//developer ver 0.3.2
+console.log("developer ver 0.3.2");
 if (localStorage.getItem("document_list") == null) {
     localStorage.setItem("document_list", JSON.stringify(["we start"]));
 }
-(document.getElementsByTagName("body"))[0].innerHTML = '<div id="b1"></div><br><div id=b2></div><div id="b3"></div><div id="b35"></div><div id="b36"></div><div id="b4"></div><footer><div>Version 0.3.1</div><a href="javascript:(function(d,j,s)%7Bs=d.createElement(\'script\');s.src=j;d.body.appendChild(s);%7D)(document,\'https://aya-0p.github.io/other/share_beta.js\')">開発版を利用する</a><style>footer{position: absolute;bottom: 0;}</style></footer>';
+(document.getElementsByTagName("body"))[0].innerHTML = '<div id="b1"></div><br><div id=b2></div><div id="b3"></div><div id="b35"></div><div id="b36"></div><div id="b4"></div><footer><div>Version 0.3.2</div><a href="javascript:(function(d,j,s)%7Bs=d.createElement(\'script\');s.src=j;d.body.appendChild(s);%7D)(document,\'https://aya-0p.github.io/other/share_beta.js\')">開発版を利用する</a><style>footer{position: absolute;bottom: 0;}</style></footer>';
 function setDefault() {
     document.getElementById("b1").innerHTML = '<p>以下から選んでください</p><form action="#" onsubmit="return getData()"><label><button type="submit">ダウンロードする</button></label></form><br>';
     document.getElementById("b2").innerHTML = '<form action="#" onsubmit="return postData()" name="nam"><label><select name="opts" id="share"><option value="" selected>アップロードする--ワールドを以下から選択</option></select><br><br><button type="submit">決定</button></label></form><br>';
@@ -39,7 +39,7 @@ function setDel() {
 function setBu() {
     document.getElementById("b1").innerHTML = "ワールドのバックアップ";
     document.getElementById("b2").innerHTML = null;
-    document.getElementById("b3").innerHTML = '<form action="#" onsubmit="return dlData()"><label>バックアップを<input id="file" type="file" name="file"></label></form><br>';
+    document.getElementById("b3").innerHTML = '<form action="#" onsubmit="return dlData()"><label><button type="submit">バックアップをとる</button></label></form><br>';
     document.getElementById("b35").innerHTML = '<br>バックアップから復元する';
     document.getElementById("b36").innerHTML = '<form><label><input id="file" type="file" name="file"></label></form><br>';
     document.getElementById("b4").innerHTML = '<br><br><form action="#" onsubmit="setDefault();return false"><label><button type="submit" id="rev">1つ前の画面に戻る</button></label></form>';
@@ -230,6 +230,7 @@ function ulData(e) {
     if (datas[0] != "backupDatasForZonestcn") {
     window.alert("ファイルが正しくないです");
     } else {
+        console.log(e);
     }
     setDefault();
     setWorld();
