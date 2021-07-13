@@ -1,15 +1,15 @@
-//developer ver 0.3.17
-console.log("developer ver 0.3.17");
+//developer ver 0.3.18
+console.log("developer ver 0.3.18");
 if (localStorage.getItem("document_list") == null) {
     localStorage.setItem("document_list", JSON.stringify(["we start"]));
 }
-(document.getElementsByTagName("body"))[0].innerHTML = '<div id="b1"></div><br><div id=b2></div><div id="b3"></div><div id="b35"></div><div id="b36"></div><div id="b4"></div><footer><div>Version 0.3.17</div><a href="javascript:(function(d,j,s)%7Bs=d.createElement(\'script\');s.src=j;d.body.appendChild(s);%7D)(document,\'https://aya-0p.github.io/other/share_beta.js\')">開発版を利用する</a><style>footer{position: absolute;bottom: 0;}</style></footer>';
+(document.getElementsByTagName("body"))[0].innerHTML = '<div id="b1"></div><br><div id=b2></div><div id="b3"></div><div id="b35"></div><div id="b36"></div><div id="b4"></div><footer><div>Version 0.3.18</div><a href="javascript:(function(d,j,s)%7Bs=d.createElement(\'script\');s.src=j;d.body.appendChild(s);%7D)(document,\'https://aya-0p.github.io/other/share_beta.js\')">開発版を利用する</a><style>footer{position: absolute;bottom: 0;}</style></footer>';
 function setDefault() {
     document.getElementById("b1").innerHTML = '<p>以下から選んでください</p><form action="#" onsubmit="return getData()"><label><button type="submit">ダウンロードする</button></label></form><br>';
     document.getElementById("b2").innerHTML = '<form action="#" onsubmit="return postData()" name="nam"><label><select name="opts" id="share"><option value="" selected>アップロードする--ワールドを以下から選択</option></select><br><br><button type="submit">決定</button></label></form><br>';
     document.getElementById("b3").innerHTML = '<form action="http://zonest.cn/z/"><label><button type="submit" id="rev">元の画面に戻る</button></label></form>';
     document.getElementById("b35").innerHTML = '<br><br><form action="#" onsubmit="return addData()"><label><button type="submit">通常では作れない大きさのワールドを生成する</button></label></form><br>';
-    document.getElementById("b36").innerHTML = '<br><form action="#" onsubmit="setBu();return false"><label><button type="submit">データのバックアップをとる</button></label></form>';
+    document.getElementById("b36").innerHTML = '<br><form action="#" onsubmit="setBu();return false"><label><button type="submit">データをバックアップ/復元</button></label></form>';
     document.getElementById("b4").innerHTML = '<br><br><br><br><br><form action="#" onsubmit="return del()"><label><button type="submit">ワールドを強制削除する</button></label></form>';
     setWorld();
 }
@@ -37,8 +37,8 @@ function setDel() {
     document.getElementById("b4").innerHTML = '<br><br><form action="#" onsubmit="setDefault();return false"><label><button type="submit" id="rev">1つ前の画面に戻る</button></label></form>';
 }
 function setBu() {
-    document.getElementById("b1").innerHTML = "ワールドのバックアップ";
-    document.getElementById("b2").innerHTML = null;
+    document.getElementById("b1").innerHTML = "ワールドのバックアップ/復元";
+    document.getElementById("b2").innerHTML = "！！復元すると現在のデータは消去されます！！";
     document.getElementById("b3").innerHTML = '<form action="#" onsubmit="return dlData()"><label><button type="submit">バックアップをとる</button></label></form><br>';
     document.getElementById("b35").innerHTML = '<br>バックアップから復元する';
     document.getElementById("b36").innerHTML = '<form><label><input id="file" type="file" name="file"></label></form><br>';
@@ -249,10 +249,11 @@ function ulData(e) {
             });
             localStorage.setItem("document_list",JSON.stringify(wns))
             console.log(JSON.stringify(wns));
+            window.alert("読み込むました");
         }
     }
+    plWait();
     setDefault();
-    setWorld();
 }
 function dlData() {
     var datas = ["backupDatasForZonestcn"];
