@@ -228,7 +228,7 @@ function addData() {
 }
 function ulData(e) {
     //console.log(JSON.parse(e));
-    if (isValidJson(value) == true) {
+    if (isValidJson(JSON.parse(e)) == true) {
         window.alert("ファイルが正しくないです");
         console.log("load error - not JSON");
     } else {
