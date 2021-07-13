@@ -1,5 +1,5 @@
-//developer ver 1.0.0
-console.log("developer ver 1.0.0");
+//developer ver 1.0.1
+console.log("developer ver 1.0.1");
 if (localStorage.getItem("document_list") == null) {
     localStorage.setItem("document_list", JSON.stringify(["we start"]));
 }
@@ -249,7 +249,7 @@ function ulData(e) {
             });
             localStorage.setItem("document_list",JSON.stringify(wns))
             console.log(JSON.stringify(wns));
-            window.alert("読み込むました");
+            window.alert("読み込みました");
         }
     }
     plWait();
