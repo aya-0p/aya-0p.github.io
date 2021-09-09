@@ -1,0 +1,4 @@
+<DOCTYPE html>
+<html><body>
+<script>function run() {let text = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//aya//aya//JP\nBEGIN:VEVENT\nDTSTART;TZID=Asia\nTokyo:20210909T200000\nDTEND;TZID=Asia/Tokyo:20210910T200000\nSUMMARY:仮\nEND:VEVENT\nEND:VCALENDAR";let blob = new Blob([text],{type:"	text/calendar"});let link = document.createElement('a');link.href = URL.createObjectURL(blob);link.download = 'cal.ics';link.click();}</script>
+<a href="#" onclick="run();return false;">run</a></body></html>
