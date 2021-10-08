@@ -38,7 +38,52 @@
   <!--<link rel="apple-touch-icon-precomposed" href=".png" />-->
 
   <link rel="stylesheet" type="text/css" href="style-mobile.css"/>
+  <!-- Auto Save Script -->
+  <script>
+    // デバイスのボタンイベントを検知するためのリスナー
+    function setVisibilityEvent(){
+      var hidden, visibilityChange;
+      if (typeof document.hidden !== "undefined") {
+        hidden = "hidden";
+        visibilityChange = "visibilitychange";
+      } else if (typeof document.mozHidden !== "undefined") {
+        hidden = "mozHidden";
+        visibilityChange = "mozvisibilitychange";
+      } else if (typeof document.msHidden !== "undefined") {
+        hidden = "msHidden";
+        visibilityChange = "msvisibilitychange";
+      } else if (typeof document.webkitHidden !== "undefined") {
+        hidden = "webkitHidden";
+        visibilityChange = "webkitvisibilitychange";
+      }
+      document.addEventListener(visibilityChange, function(){
+        // ページ非表示と表示時に呼ばれるため、表示から非表示になった時だけ呼ばれるように
+        // document.hidden条件を追加
+        if(document.hidden){
+          request("visibilitychange");
+        }
+      }, false);
+    }
 
+    // ページ遷移イベントを検知するためのリスナー
+    function setPageTransitionListener(){
+      window.addEventListener("pagehide", function(){
+        request("pagehide");
+      }, false);
+    }
+
+    // 非表示時の処理
+    function request(event){
+      console.log("?");
+    }
+
+    function main_event(){
+      setVisibilityEvent();
+      setPageTransitionListener();
+    }
+
+    main_event();
+  </script>
 </head>
 <body>
   <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="0"></canvas>
