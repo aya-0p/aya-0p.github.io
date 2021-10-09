@@ -154,74 +154,84 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
   <!--<link rel="apple-touch-icon-precomposed" href=".png" />-->
 
   <link rel="stylesheet" type="text/css" href="style-mobile.css"/>
-  <!-- Auto Save Script -->
+  <!-- Addon Script -->
   <script>
-    // デバイスのボタンイベントを検知するためのリスナー
-    function setVisibilityEvent(){
-      var hidden, visibilityChange;
-      if (typeof document.hidden !== "undefined") {
-        hidden = "hidden";
-        visibilityChange = "visibilitychange";
-      } else if (typeof document.mozHidden !== "undefined") {
-        hidden = "mozHidden";
-        visibilityChange = "mozvisibilitychange";
-      } else if (typeof document.msHidden !== "undefined") {
-        hidden = "msHidden";
-        visibilityChange = "msvisibilitychange";
-      } else if (typeof document.webkitHidden !== "undefined") {
-        hidden = "webkitHidden";
-        visibilityChange = "webkitvisibilitychange";
+    var uid
+    function login() {
+      uid = window.prompt("ユーザー名を入力してください");
+      if (uid === null || uid === undefined || uid === "") {
+        return false;
+      } else {
+        document.getElementById("nav1").style.display = "none";
+        //document.getElementById("nav2").style.display = "block";
+        document.getElementById("nav3").style.display = "block";
+        document.getElementById("nav4").style.display = "block";
+        document.getElementById("nav5").style.display = "block";
+        return false;
       }
-      document.addEventListener(visibilityChange, function(){
-        // ページ非表示と表示時に呼ばれるため、表示から非表示になった時だけ呼ばれるように
-        // document.hidden条件を追加
-        if(document.hidden){
-          request("visibilitychange");
-        }
-      }, false);
-    }
-
-    // ページ遷移イベントを検知するためのリスナー
-    function setPageTransitionListener(){
-      window.addEventListener("pagehide", function(){
-        request("pagehide");
-      }, false);
-    }
-
-    // 非表示時の処理
-    function request(event){
-      backupDatas();
-    }
-
-    function main_event(){
-      setVisibilityEvent();
-      setPageTransitionListener();
-    }
-    function backupDatas() {
-      var sendFile = {datas: []};
+    };
+    //function wSave() {};
+    function wBackup() {
+      var sendFile = {userid: uid, type: "backup", datas: []};
         for(i = 1; i < JSON.parse(localStorage.getItem("document_list")).length; i++) {
           try {
-            var data = {type: "backup"};
+            var data = {};
             var test;
             test = JSON.parse(localStorage.getItem(JSON.parse(localStorage.getItem("document_list"))[i]));
             data.worldName = JSON.parse(localStorage.getItem("document_list"))[i];
             data.worldData = localStorage.getItem(JSON.parse(localStorage.getItem("document_list"))[i])
             sendFile.datas.push(data);
           } catch (e) {
-           console.error(e.message);
+           console.warn(e.message);
           }
         }
+      sendData(sendFile);
+    };
+    function wImport() {};
+    function wShare() {
+      if (checkJson(localStorage.getItem("document_list"))) {
+        var worldList = JSON.parse(localStorage.getItem("document_list"));
+        var list = worldList.splice(1, worldList.length-1);
+        document.getElementById("nav6").innerHTML = `以下から共有するワールドを選択<br><form action="#" onsubmit="worldShare();return false;" name="nam"><label><select id="wld"></select><button type="submit">共有</button></label></form>`;
+        for (var i=0; i<list.length; i++) {
+          document.getElementById("wld").innerHTML += `<option value="${list[i]}">${list[i]}</option>`;
+        }
+      } else {
+        window.alert("ワールドが存在しません。");
+        return false;
+      }
+    };
+    function checkJson(text) {
+      try {
+        JSON.parse(text);
+      } catch (e) {
+        return false;
+      }
+      return true;
+    }
+    function worldShare() {
+      var wName = document.nam.elements[0].value;
+      if (wName === null || wName === undefined || wName === "" || !checkJson(wName)) {
+        return false;
+      } else {
+        var sendFile = {userid: uid, type: "share", datas: {worldName: wName, worldData: localStorage.getItem("wName")}};
+        sendData(sendFile);
+      }
+      return false;
+    }
+    function sendData(sendFile) {
       console.log(sendFile);
     }
-    main_event();
   </script>
 </head>
 <body>
   <ul class="navigation">
-    <li class="nav-item"><a href="#">Save</a></li>
-    <li class="nav-item"><a href="#">Export</a></li>
-    <li class="nav-item"><a href="#">Import</a></li>
-    <li class="nav-item"><a href="#">Share</a></li>
+    <li class="nav-item" id="nav1" style="display: block;"><a href="#" onclick="login();">Login / Create Account</a></li>
+    <!-- <li class="nav-item" id="nav2" style="display: none;"><a href="#" onclick="wSave();">Save</a></li> -->
+    <li class="nav-item" id="nav3" style="display: none;"><a href="#" onclick="wBackup();">Backup</a></li>
+    <li class="nav-item" id="nav4" style="display: none;"><a href="#" onclick="wImport();">Import</a></li>
+    <li class="nav-item" id="nav5" style="display: none;"><a href="#" onclick="wShare();">Share</a></li>
+    <li class="nav-item" id="nav6" style="display: none;"></li>
   </ul>
   
   <input type="checkbox" id="nav-trigger" class="nav-trigger" />
