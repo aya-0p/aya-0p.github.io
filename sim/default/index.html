@@ -71,14 +71,14 @@ clip: rect(0, 0, 0, 0);
 label[for="nav-trigger"] {
 /* critical positioning styles */
 position: fixed;
-left: 15px; top: 15px;
+left: 15px; top: 60px;
 z-index: 2;
 
 /* non-critical apperance styles */
 height: 30px;
 width: 30px;
 cursor: pointer;
-background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' width='30px' height='30px' viewBox='0 0 30 30' enable-background='new 0 0 30 30' xml:space='preserve'><rect width='30' height='6'/><rect y='24' width='30' height='6'/><rect y='12' width='30' height='6'/></svg>");
+background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" xml:space="preserve"><path d="M0 0h30v6H0zM0 24h30v6H0zM0 12h30v6H0z" fill="%23ffffff"/></svg>');
 background-size: contain;
 }
 
@@ -218,11 +218,10 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
 </head>
 <body>
   <ul class="navigation">
-    <li class="nav-item"><a href="#">Home</a></li>
-    <li class="nav-item"><a href="#">Portfolio</a></li>
-    <li class="nav-item"><a href="#">About</a></li>
-    <li class="nav-item"><a href="#">Blog</a></li>
-    <li class="nav-item"><a href="#">Contact</a></li>
+    <li class="nav-item"><a href="#">Save</a></li>
+    <li class="nav-item"><a href="#">Export</a></li>
+    <li class="nav-item"><a href="#">Import</a></li>
+    <li class="nav-item"><a href="#">Share</a></li>
   </ul>
   
   <input type="checkbox" id="nav-trigger" class="nav-trigger" />
