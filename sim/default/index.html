@@ -199,6 +199,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
       } else {
         window.alert("ワールドが存在しません。");
       }
+      document.getElementById("nav6").style.display = "block";
       return false;
     };
     function checkJson(text) {
@@ -212,7 +213,6 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
     function worldShare() {
       var wName = document.nam.elements[0].value;
       if (wName === null || wName === undefined || wName === "" || !checkJson(wName)) {
-        return false;
       } else {
         var sendFile = {userid: uid, type: "share", datas: {worldName: wName, worldData: localStorage.getItem("wName")}};
         sendData(sendFile);
@@ -221,6 +221,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
     }
     function sendData(sendFile) {
       console.log(sendFile);
+      return false;
     }
   </script>
 </head>
