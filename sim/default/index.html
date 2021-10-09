@@ -212,9 +212,9 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
     }
     function worldShare() {
       var wName = document.nam.elements[0].value;
-      if (wName === null || wName === undefined || wName === "" || !checkJson(wName)) {
+      if (wName === null || wName === undefined || wName === "" || !checkJson(localStorage.getItem(wName))) {
       } else {
-        var sendFile = {userid: uid, type: "share", datas: {worldName: wName, worldData: localStorage.getItem("wName")}};
+        var sendFile = {userid: uid, type: "share", datas: {worldName: wName, worldData: localStorage.getItem(wName)}};
         sendData(sendFile);
       }
       return false;
