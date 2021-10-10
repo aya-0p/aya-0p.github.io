@@ -157,8 +157,8 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
   <!-- Addon Script -->
   <script>
     var uid
-    function login(id) {
-      if (!id) {uid = window.prompt("ユーザー名を入力してください");};
+    function login() {
+      if (!uid) {uid = window.prompt("ユーザー名を入力してください");};
       if (uid === null || uid === undefined || uid === "") {
         return false;
       } else {
@@ -191,7 +191,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
         window.prompt("不明なエラーにより操作が完了しませんでした。");
       }
     };
-    function wImport() {
+    async function wImport() {
       login();
       var wid = window.prompt("ワールドIDを入力してください。バックアップから復元する場合は「復元」と入力してください。");
       if (wid === "復元") {wid = uid};
@@ -200,6 +200,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
       url.searchParams.set('name', wid);
       xmlGet.open("GET", url);
       xmlGet.send();
+      await sleep(5000);
       var res = xmlGet.response;
       console.log(res);//------------------------------------
       return false;
@@ -247,6 +248,13 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
       xmlSend.send(JSON.stringify(sendFile));
       var response = xmlSend.response;
       return response;
+    }
+    function sleep(msec) {
+      return new Promise(function(resolve) {
+        setTimeout(function() {
+          resolve()
+        }, msec);
+      })
     }
   </script>
 </head>
