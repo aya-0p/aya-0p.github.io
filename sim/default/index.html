@@ -157,7 +157,8 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
   <!-- Addon Script -->
   <script>
     var uid
-    function login() {
+    function login(id) {
+      if (!id) {uid = window.prompt("ユーザー名を入力してください");};
       uid = window.prompt("ユーザー名を入力してください");
       if (uid === null || uid === undefined || uid === "") {
         return false;
@@ -172,6 +173,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
     };
     //function wSave() {};
     function wBackup() {
+      login();
       var sendFile = {userid: uid, type: "backup", datas: []};
         for(i = 1; i < JSON.parse(localStorage.getItem("document_list")).length; i++) {
           try {
@@ -185,13 +187,30 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
            console.warn(e.message);
           }
         }
-      sendData(sendFile);
+      var s = sendData(sendFile);
+      if (s == -1) {
+        window.prompt("不明なエラーにより操作が完了しませんでした。");
+      }
     };
-    function wImport() {};
+    function wImport() {
+      login();
+      var wid = window.prompt("ワールドIDを入力してください。バックアップから復元する場合は「復元」と入力してください。");
+      if (wid === "復元") {wid = uid};
+      var xmlGet = new XMLHttpRequest();
+      var url = new URL('https://script.google.com/macros/s/AKfycbzzbYCHy2Wusf4l9cP6SwejPu9v2_Yc8Qm9s86Tk3kNlyo9M9e-hr5KcTxF5mUdSztq/exec');
+      url.searchParams.set('name', wid);
+      xmlGet.open("GET", url);
+      xmlGet.send();
+      var res = xmlGet.response;
+      console.log(res);//------------------------------------
+      return false;
+    };
     function wShare() {
+      login();
       if (checkJson(localStorage.getItem("document_list"))) {
         var worldList = JSON.parse(localStorage.getItem("document_list"));
         var list = worldList.splice(1, worldList.length-1);
+        document.getElementById("nav6").style.display = "block";
         document.getElementById("nav6").innerHTML = `以下から共有するワールドを選択<br><form action="#" onsubmit="worldShare();return false;" name="nam"><label><select id="wld"></select><button type="submit">共有</button></label></form>`;
         for (var i=0; i<list.length; i++) {
           document.getElementById("wld").innerHTML += `<option value="${list[i]}">${list[i]}</option>`;
@@ -199,7 +218,6 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
       } else {
         window.alert("ワールドが存在しません。");
       }
-      document.getElementById("nav6").style.display = "block";
       return false;
     };
     function checkJson(text) {
@@ -211,17 +229,25 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
       return true;
     }
     function worldShare() {
+      login();
       var wName = document.nam.elements[0].value;
       if (wName === null || wName === undefined || wName === "" || !checkJson(localStorage.getItem(wName))) {
       } else {
         var sendFile = {userid: uid, type: "share", datas: {worldName: wName, worldData: localStorage.getItem(wName)}};
-        sendData(sendFile);
+        var a = sendData(sendFile);
+        window.alert(`共有したワールドのIDです。これを共有したい人に渡してください。\n ${a}`);
+        console.log(a);
       }
       return false;
     }
     function sendData(sendFile) {
       console.log(sendFile);
-      return false;
+      var xmlSend = new XMLHttpRequest();
+      xmlSend.open("POST", "https://script.google.com/macros/s/AKfycbzzbYCHy2Wusf4l9cP6SwejPu9v2_Yc8Qm9s86Tk3kNlyo9M9e-hr5KcTxF5mUdSztq/exec", false);
+      xmlSend.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xmlSend.send(JSON.stringify(sendFile));
+      var response = xmlSend.response;
+      return response;
     }
   </script>
 </head>
