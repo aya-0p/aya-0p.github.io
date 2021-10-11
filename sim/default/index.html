@@ -200,7 +200,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
         login();
         var wid = window.prompt("バックアップから復元します。復元すると現在のデータは削除されます。\n「復元」と入力してください。");
         if (wid === "復元") {wid = uid} else {return false;}
-      }
+      } else {wid = id}
       var xmlGet = new XMLHttpRequest();
       var url = new URL('https://script.google.com/macros/s/AKfycbzzbYCHy2Wusf4l9cP6SwejPu9v2_Yc8Qm9s86Tk3kNlyo9M9e-hr5KcTxF5mUdSztq/exec');
       url.searchParams.set('name', wid);
