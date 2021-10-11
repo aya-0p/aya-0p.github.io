@@ -215,6 +215,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
           localStorage.setItem('document_list', JSON.stringify(worlds));
         }
         localStorage.setItem(res[0].worldName, res[0].worldData);
+        window.alert("インポートしました。再読み込みすると表示されます。");
       } else if (res.length > 1) {
         //import from backup
         localStorage.clear();
@@ -237,7 +238,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
     };
     function wShare() {
       login();
-      if (checkJson(localStorage.getItem("document_list"))) {
+      if (checkJson(localStorage.getItem("document_list"))　&& JSON.parse(localStorage.getItem("document_list")).length > 1) {
         var worldList = JSON.parse(localStorage.getItem("document_list"));
         var list = worldList.splice(1, worldList.length-1);
         document.getElementById("nav6").style.display = "block";
