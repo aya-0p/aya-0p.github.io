@@ -167,7 +167,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
         document.getElementById("nav3").style.display = "block";
         document.getElementById("nav4").style.display = "block";
         document.getElementById("nav5").style.display = "block";
-        document.getElementById("nav5").style.display = "none";
+        document.getElementById("nav6").style.display = "none";
         return false;
       }
     };
@@ -183,7 +183,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
             data.worldName = JSON.parse(localStorage.getItem("document_list"))[i];
             data.worldData = localStorage.getItem(JSON.parse(localStorage.getItem("document_list"))[i])
             sendFile.datas.push(data);
-            window.prompt("バックアップしました。");
+            window.alert("バックアップしました。");
             login();
           } catch (e) {
            console.warn(e.message);
@@ -191,7 +191,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
         }
       var s = sendData(sendFile);
       if (s == -1) {
-        window.prompt("不明なエラーにより操作が完了しませんでした。");
+        window.alert("不明なエラーにより操作が完了しませんでした。");
       }
     };
     async function wImport() {
@@ -206,7 +206,17 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
       await sleep(5000);
       var res = JSON.parse(xmlGet.response);
       console.log(res);//------------------------------------
-      
+      if (res.length === 1) {
+        //import from share
+      } else if (res.length > 1) {
+        //import from backup
+      } else {
+        if (wid === uid) {
+          window.alert("そのアカウントにバックアップ記録はありません。");
+        } else {
+          window.alert("そのIDに一致するワールドが見つかりません。")
+        }
+      }
       return false;
     };
     function wShare() {
@@ -237,7 +247,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
       var wName = document.nam.elements[0].value;
       if (wName === null || wName === undefined || wName === "" || !checkJson(localStorage.getItem(wName))) {
       } else {
-        var sendFile = {userid: uid, type: "share", datas: {worldName: wName, worldData: localStorage.getItem(wName)}};
+        var sendFile = {userid: uid, type: "share", datas: [{worldName: wName, worldData: localStorage.getItem(wName)}]};
         var a = sendData(sendFile);
         window.alert(`共有したワールドのIDです。これを共有したい人に渡してください。\n ${a}`);
         console.log(a);
