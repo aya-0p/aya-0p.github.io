@@ -167,6 +167,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
         document.getElementById("nav3").style.display = "block";
         document.getElementById("nav4").style.display = "block";
         document.getElementById("nav5").style.display = "block";
+        document.getElementById("nav5").style.display = "none";
         return false;
       }
     };
@@ -182,6 +183,8 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
             data.worldName = JSON.parse(localStorage.getItem("document_list"))[i];
             data.worldData = localStorage.getItem(JSON.parse(localStorage.getItem("document_list"))[i])
             sendFile.datas.push(data);
+            window.prompt("バックアップしました。");
+            login();
           } catch (e) {
            console.warn(e.message);
           }
@@ -201,8 +204,9 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
       xmlGet.open("GET", url);
       xmlGet.send();
       await sleep(5000);
-      var res = xmlGet.response;
+      var res = JSON.parse(xmlGet.response);
       console.log(res);//------------------------------------
+      
       return false;
     };
     function wShare() {
@@ -237,6 +241,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
         var a = sendData(sendFile);
         window.alert(`共有したワールドのIDです。これを共有したい人に渡してください。\n ${a}`);
         console.log(a);
+        login();
       }
       return false;
     }
