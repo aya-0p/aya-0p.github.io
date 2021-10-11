@@ -183,7 +183,6 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
             data.worldName = JSON.parse(localStorage.getItem("document_list"))[i];
             data.worldData = localStorage.getItem(JSON.parse(localStorage.getItem("document_list"))[i])
             sendFile.datas.push(data);
-            window.alert("バックアップしました。");
             login();
           } catch (e) {
            console.warn(e.message);
@@ -192,6 +191,8 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
       var s = sendData(sendFile);
       if (s == -1) {
         window.alert("不明なエラーにより操作が完了しませんでした。");
+      } else {
+        window.alert("バックアップしました。");
       }
     };
     async function wImport() {
@@ -205,11 +206,26 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
       xmlGet.send();
       await sleep(5000);
       var res = JSON.parse(xmlGet.response);
-      console.log(res);//------------------------------------
+      console.log(res);
       if (res.length === 1) {
         //import from share
+        var worlds = JSON.parse(localStorage.getItem("document_list"));
+        if (!worlds.includes(res[0].worldName)) {
+          worlds.push(res[0].worldName);
+          localStorage.setItem('document_list', JSON.stringify(worlds));
+        }
+        localStorage.setItem(res[0].worldName, res[0].worldData);
       } else if (res.length > 1) {
         //import from backup
+        localStorage.clear();
+        var worlds = ["we start"];
+        res.forEach(element => {
+          worlds.push(element.worldName);
+          localStorage.setItem(element.worldName,element.worldData);
+        });
+        localStorage.setItem("document_list", JSON.stringify(worlds));
+        window.alert("復元しました。再読み込みします。");
+        window.location.reload();
       } else {
         if (wid === uid) {
           window.alert("そのアカウントにバックアップ記録はありません。");
