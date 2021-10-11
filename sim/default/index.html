@@ -158,7 +158,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
   <script>
     var uid
     function login() {
-      if (!uid) {uid = window.prompt("ユーザー名を入力してください");};
+      if (!uid) {uid = window.prompt("ユーザー名（以降も使います）を入力してください。");};
       if (uid === null || uid === undefined || uid === "") {
         return false;
       } else {
@@ -195,10 +195,14 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
         window.alert("バックアップしました。");
       }
     };
-    async function wImport() {
-      login();
-      var wid = window.prompt("ワールドIDを入力してください。バックアップから復元する場合は「復元」と入力してください。");
-      if (wid === "復元") {wid = uid};
+    async function wImport(id) {
+      if (!id) {
+        login();
+        var wid = window.prompt("ワールドIDを入力してください。バックアップから復元する場合は「復元」と入力してください。");
+        if (wid === "復元") {wid = uid};
+      } else {
+        wid = id;
+      }
       var xmlGet = new XMLHttpRequest();
       var url = new URL('https://script.google.com/macros/s/AKfycbzzbYCHy2Wusf4l9cP6SwejPu9v2_Yc8Qm9s86Tk3kNlyo9M9e-hr5KcTxF5mUdSztq/exec');
       url.searchParams.set('name', wid);
@@ -260,15 +264,14 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
       return true;
     }
     function worldShare() {
-      login();
       var wName = document.nam.elements[0].value;
       if (wName === null || wName === undefined || wName === "" || !checkJson(localStorage.getItem(wName))) {
       } else {
         var sendFile = {userid: uid, type: "share", datas: [{worldName: wName, worldData: localStorage.getItem(wName)}]};
         var a = sendData(sendFile);
-        window.alert(`共有したワールドのIDです。これを共有したい人に渡してください。\n ${a}`);
+        //window.alert(`共有したワールドのIDです。これを共有したい人に渡してください。\n ${a}`);
+        document.getElementById("nav6").innerHTML = `共有したワールドのURLおよびIDです。これを共有したい人に渡してください。\n worldID:${a}\nworldURL:<a href="https://aya-0p.github.io/sim/default/?id=${a}">https://aya-0p.github.io/sim/default/?id=${a}</a>`
         console.log(a);
-        login();
       }
       return false;
     }
@@ -287,6 +290,10 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
           resolve()
         }, msec);
       })
+    }
+    var getId = (new URL(document.location)).searchParams.get("id");
+    if (getId) {
+      wImport(getId);
     }
   </script>
 </head>
