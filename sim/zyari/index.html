@@ -119,7 +119,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
   </style>
   <meta charset="utf-8">
 
-  <title>OHOLdesiger + Gravel,Japanese mod</title>
+  <title>OHOLdesiger + Gravel mod</title>
 
   <!--http://www.html5rocks.com/en/mobile/mobifying/-->
   <meta name="viewport"
@@ -158,7 +158,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
   <script>
     var uid
     function login() {
-      if (!uid) {uid = window.prompt("ユーザー名を入力してください");};
+      if (!uid) {uid = window.prompt("ユーザー名（以降も使います）を入力してください。");};
       if (uid === null || uid === undefined || uid === "") {
         return false;
       } else {
@@ -195,10 +195,12 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
         window.alert("バックアップしました。");
       }
     };
-    async function wImport() {
-      login();
-      var wid = window.prompt("ワールドIDを入力してください。バックアップから復元する場合は「復元」と入力してください。");
-      if (wid === "復元") {wid = uid};
+    async function wImport(id) {
+      if (!id) {
+        login();
+        var wid = window.prompt("バックアップから復元します。復元すると現在のデータは削除されます。\n「復元」と入力してください。");
+        if (wid === "復元") {wid = uid} else {return false;}
+      } else {wid = id}
       var xmlGet = new XMLHttpRequest();
       var url = new URL('https://script.google.com/macros/s/AKfycbzzbYCHy2Wusf4l9cP6SwejPu9v2_Yc8Qm9s86Tk3kNlyo9M9e-hr5KcTxF5mUdSztq/exec');
       url.searchParams.set('name', wid);
@@ -215,7 +217,9 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
           localStorage.setItem('document_list', JSON.stringify(worlds));
         }
         localStorage.setItem(res[0].worldName, res[0].worldData);
-        window.alert("インポートしました。再読み込みすると表示されます。");
+        window.alert("インポートしました。");
+        window.location.href = 'https://aya-0p.github.io/sim/zyari/';
+
       } else if (res.length > 1) {
         //import from backup
         localStorage.clear();
@@ -260,15 +264,14 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
       return true;
     }
     function worldShare() {
-      login();
       var wName = document.nam.elements[0].value;
       if (wName === null || wName === undefined || wName === "" || !checkJson(localStorage.getItem(wName))) {
       } else {
         var sendFile = {userid: uid, type: "share", datas: [{worldName: wName, worldData: localStorage.getItem(wName)}]};
         var a = sendData(sendFile);
-        window.alert(`共有したワールドのIDです。これを共有したい人に渡してください。\n ${a}`);
+        //window.alert(`共有したワールドのIDです。これを共有したい人に渡してください。\n ${a}`);
+        document.getElementById("nav6").innerHTML = `共有したワールドのURLです。これを共有したい人に渡してください。\n<a href="https://aya-0p.github.io/sim/zyari/?id=${a}">URL(長押し/右クリックしてコピー/共有)</a>`
         console.log(a);
-        login();
       }
       return false;
     }
@@ -288,15 +291,19 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
         }, msec);
       })
     }
+    var getId = (new URL(document.location)).searchParams.get("id");
+    if (getId) {
+      wImport(getId.replace(/\'/,""));
+    }
   </script>
 </head>
 <body>
   <ul class="navigation">
-    <li class="nav-item" id="nav1" style="display: block;"><a href="#" onclick="login();">Login / Create Account</a></li>
+    <li class="nav-item" id="nav1" style="display: block;"><a href="#" onclick="login();">Login / Create Account<br>ログイン</a></li>
     <!-- <li class="nav-item" id="nav2" style="display: none;"><a href="#" onclick="wSave();">Save</a></li> -->
-    <li class="nav-item" id="nav3" style="display: none;"><a href="#" onclick="wBackup();">Backup</a></li>
-    <li class="nav-item" id="nav4" style="display: none;"><a href="#" onclick="wImport();">Import</a></li>
-    <li class="nav-item" id="nav5" style="display: none;"><a href="#" onclick="wShare();">Share</a></li>
+    <li class="nav-item" id="nav3" style="display: none;"><a href="#" onclick="wBackup();">Backup<br>バックアップ</a></li>
+    <li class="nav-item" id="nav4" style="display: none;"><a href="#" onclick="wImport();">Import<br>復元</a></li>
+    <li class="nav-item" id="nav5" style="display: none;"><a href="#" onclick="wShare();">Share<br>共有</a></li>
     <li class="nav-item" id="nav6" style="display: none;"></li>
   </ul>
   
