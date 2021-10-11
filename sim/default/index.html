@@ -293,7 +293,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
     }
     var getId = (new URL(document.location)).searchParams.get("id");
     if (getId) {
-      wImport(getId);
+      wImport(getId.replace(/\'/,""));
     }
   </script>
 </head>
