@@ -642,8 +642,8 @@ window.__require = function e(t, n, a) {
             },
             start: function() {},
             update: function(e) {
-                this.node.getChildByName("Tx2").getComponent(cc.Label).string = "STATUS-0" + a.t2,
-                this.node.getChildByName("top_tools").getChildByName("scale").getChildByName("Background").getChildByName("Label").getComponent(cc.Label).string = "Scale:\n" + parseInt(100 * this.node.getChildByName("paper_zoom").scale) + "%"
+                this.node.getChildByName("Tx2").getComponent(cc.Label).string = /*"STATUS-0" + a.t2*/"",
+                this.node.getChildByName("top_tools").getChildByName("scale").getChildByName("Background").getChildByName("Label").getComponent(cc.Label).string = ""/*"Scale:\n" + parseInt(100 * this.node.getChildByName("paper_zoom").scale) + "%"*/
             }
         }),
         cc._RF.pop()
