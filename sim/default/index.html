@@ -303,8 +303,8 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
         var document_list = JSON.parse(localStorage.getItem("document_list"));
         document_gravel.splice(document_gravel.indexOf(wName),1);
         if(document_list.indexOf(wName) === -1){document_list.push(wName)};
-        localStorage.setItem("document_gravel", document_gravel);
-        localStorage.setItem("document_list", document_list);
+        localStorage.setItem("document_gravel", JSON.stringify(document_gravel));
+        localStorage.setItem("document_list", JSON.stringify(document_list));
         window.alert("インポートしました。");
         window.location.reload();
       }
