@@ -168,6 +168,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
         document.getElementById("nav4").style.display = "block";
         document.getElementById("nav5").style.display = "block";
         document.getElementById("nav6").style.display = "none";
+        document.getElementById("nav9").style.display = "none";
         return false;
       }
     };
@@ -175,13 +176,13 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
     function wBackup() {
       login();
       var sendFile = {userid: uid, type: "backup", datas: []};
-        for(i = 1; i < JSON.parse(localStorage.getItem("document_list")).length; i++) {
+        for(i = 1; i < JSON.parse(localStorage.getItem("document_gravel")).length; i++) {
           try {
             var data = {};
             var test;
-            test = JSON.parse(localStorage.getItem(JSON.parse(localStorage.getItem("document_list"))[i]));
-            data.worldName = JSON.parse(localStorage.getItem("document_list"))[i];
-            data.worldData = localStorage.getItem(JSON.parse(localStorage.getItem("document_list"))[i])
+            test = JSON.parse(localStorage.getItem(JSON.parse(localStorage.getItem("document_gravel"))[i]));
+            data.worldName = JSON.parse(localStorage.getItem("document_gravel"))[i];
+            data.worldData = localStorage.getItem(JSON.parse(localStorage.getItem("document_gravel"))[i])
             sendFile.datas.push(data);
             login();
           } catch (e) {
@@ -211,7 +212,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
       console.log(res);
       if (res.length === 1) {
         //import from share
-        var worlds = JSON.parse(localStorage.getItem("document_list"));
+        var worlds = JSON.parse(localStorage.getItem("document_gravel"));
         if (!worlds.includes(res[0].worldName)) {
           worlds.push(res[0].worldName);
           localStorage.setItem('document_list', JSON.stringify(worlds));
@@ -228,7 +229,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
           worlds.push(element.worldName);
           localStorage.setItem(element.worldName,element.worldData);
         });
-        localStorage.setItem("document_list", JSON.stringify(worlds));
+        localStorage.setItem("document_gravel", JSON.stringify(worlds));
         window.alert("復元しました。再読み込みします。");
         window.location.reload();
       } else {
@@ -242,8 +243,8 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
     };
     function wShare() {
       login();
-      if (checkJson(localStorage.getItem("document_list"))　&& JSON.parse(localStorage.getItem("document_list")).length > 1) {
-        var worldList = JSON.parse(localStorage.getItem("document_list"));
+      if (checkJson(localStorage.getItem("document_gravel"))　&& JSON.parse(localStorage.getItem("document_gravel")).length > 1) {
+        var worldList = JSON.parse(localStorage.getItem("document_gravel"));
         var list = worldList.splice(1, worldList.length-1);
         document.getElementById("nav6").style.display = "block";
         document.getElementById("nav6").innerHTML = `以下から共有するワールドを選択<br><form action="#" onsubmit="worldShare();return false;" name="nam"><label><select id="wld"></select><button type="submit">共有</button></label></form>`;
@@ -284,6 +285,30 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
       var response = xmlSend.response;
       return response;
     }
+    function wMove() {
+      var worldList = JSON.parse(localStorage.getItem("document_list"));//固定
+      var list = worldList.splice(1, worldList.length-1);
+      document.getElementById("nav9").style.display = "block";
+      document.getElementById("nav9").innerHTML = `以下からインポートするワールドを選択<br><form action="#" onsubmit="worldMove();return false;" name="na"><label><select id="wl"></select><button type="submit">インポート</button></label></form>`;
+      for (var i=0; i<list.length; i++) {
+        document.getElementById("wl").innerHTML += `<option value="${list[i]}">${list[i]}</option>`;
+      }
+    }
+    function worldMove() {
+      var wName = document.na.elements[0].value;
+      if(!localStorage.getItem("document_gravel")){localStorage.setItem("document_gravel","[\"we start\"]")}
+      if (wName === null || wName === undefined || wName === "" || !checkJson(localStorage.getItem(wName))) {
+      } else {
+        var document_list = JSON.parse(localStorage.getItem("document_list"));//固定
+        var document_gravel = JSON.parse(localStorage.getItem("document_gravel"));
+        document_list.splice(document_list.indexOf(wName),1);
+        if(document_gravel.indexOf(wName) === -1){document_gravel.push(wName)};
+        localStorage.setItem("document_list", document_list);
+        localStorage.setItem("document_gravel", document_gravel);
+        window.alert("インポートしました。");
+        window.location.reload();
+      }
+    }
     function sleep(msec) {
       return new Promise(function(resolve) {
         setTimeout(function() {
@@ -295,6 +320,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
     if (getId) {
       wImport(getId.replace(/\'/,""));
     }
+    if(!localStorage.getItem("document_gravel")){localStorage.setItem("document_gravel","[\"we start\"]")}
   </script>
 </head>
 <body>
@@ -306,6 +332,8 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
     <li class="nav-item" id="nav5" style="display: none;"><a href="#" onclick="wShare();">Share<br>共有</a></li>
     <li class="nav-item" id="nav6" style="display: none;"></li>
     <li class="nav-item" id="nav7" style="display: block;"><a href="#" onclick="window.open(`https:/\/aya-0p.github.io/sim/view-zyari/`, '_blank');return false;">View<br>閲覧モードを利用</a></li>
+    <li class="nav-item" id="nav8" style="display: block;"><a href="#" onclick="wMove();">通常からデータを移行</a></li>
+    <li class="nav-item" id="nav9" style="display: none;"></li>
   </ul>
   
   <input type="checkbox" id="nav-trigger" class="nav-trigger" />

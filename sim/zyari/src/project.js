@@ -2905,14 +2905,14 @@ window.__require = function e(t, n, a) {
                                     }
                     if (console.log(n),
                     cc.sys.localStorage.setItem(e, JSON.stringify(n)),
-                    JSON.parse(cc.sys.localStorage.getItem("document_list")))
-                        (t = JSON.parse(cc.sys.localStorage.getItem("document_list"))).push(e),
-                        cc.sys.localStorage.setItem("document_list", JSON.stringify(t));
+                    JSON.parse(cc.sys.localStorage.getItem("document_gravel")))
+                        (t = JSON.parse(cc.sys.localStorage.getItem("document_gravel"))).push(e),
+                        cc.sys.localStorage.setItem("document_gravel", JSON.stringify(t));
                     else
                         (t = []).push("we start"),
                         t.push(e),
-                        cc.sys.localStorage.setItem("document_list", JSON.stringify(t));
-                    var u = JSON.parse(cc.sys.localStorage.getItem("document_list"));
+                        cc.sys.localStorage.setItem("document_gravel", JSON.stringify(t));
+                    var u = JSON.parse(cc.sys.localStorage.getItem("document_gravel"));
                     console.log(u),
                     this.node.active = !1
                 }
@@ -2949,8 +2949,8 @@ window.__require = function e(t, n, a) {
             },
             onLoad: function() {
                 if (console.log("dsfasdfadfa" + cc.director.getRunningScene().name),
-                JSON.parse(cc.sys.localStorage.getItem("document_list"))) {
-                    var e = JSON.parse(cc.sys.localStorage.getItem("document_list"));
+                JSON.parse(cc.sys.localStorage.getItem("document_gravel"))) {
+                    var e = JSON.parse(cc.sys.localStorage.getItem("document_gravel"));
                     a.val = 0;
                     for (var t = this.button, n = 1; n < t.parent.childrenCount; n++)
                         t.parent.children[n].destroy();
@@ -3768,9 +3768,9 @@ window.__require = function e(t, n, a) {
                 }
             },
             on_touch_end: function(e) {
-                if (JSON.parse(cc.sys.localStorage.getItem("document_list"))) {
+                if (JSON.parse(cc.sys.localStorage.getItem("document_gravel"))) {
                     this.target.active = !0;
-                    var t = JSON.parse(cc.sys.localStorage.getItem("document_list"));
+                    var t = JSON.parse(cc.sys.localStorage.getItem("document_gravel"));
                     o.val = 0;
                     for (var n = this.button, a = 1; a < n.parent.childrenCount; a++)
                         n.parent.children[a].destroy();
@@ -3879,9 +3879,9 @@ window.__require = function e(t, n, a) {
             },
             on_touch_end: function(e) {
                 if (a.t2 = 0,
-                JSON.parse(cc.sys.localStorage.getItem("document_list"))) {
+                JSON.parse(cc.sys.localStorage.getItem("document_gravel"))) {
                     this.target.active = !0;
-                    var t = JSON.parse(cc.sys.localStorage.getItem("document_list"));
+                    var t = JSON.parse(cc.sys.localStorage.getItem("document_gravel"));
                     o.val = 0;
                     for (var n = this.button, i = 1; i < n.parent.childrenCount; i++)
                         n.parent.children[i].destroy();
@@ -4140,10 +4140,10 @@ window.__require = function e(t, n, a) {
             },
             on_touch_end: function(e) {
                 if (0 !== o.val) {
-                    var t = JSON.parse(cc.sys.localStorage.getItem("document_list"))
+                    var t = JSON.parse(cc.sys.localStorage.getItem("document_gravel"))
                       , n = this.target.children[o.val].getChildByName("Background").getChildByName("Label").getComponent(cc.Label).string;
                     t.splice(o.val + 1, 0, n),
-                    cc.sys.localStorage.setItem("document_list", JSON.stringify(t)),
+                    cc.sys.localStorage.setItem("document_gravel", JSON.stringify(t)),
                     console.log(t);
                     for (var a = this.button, c = 1; c < a.parent.childrenCount; c++)
                         a.parent.children[c].destroy();
@@ -4207,7 +4207,7 @@ window.__require = function e(t, n, a) {
             },
             on_touch_end: function(e) {
                 if (0 !== o.val) {
-                    var t = JSON.parse(cc.sys.localStorage.getItem("document_list"))
+                    var t = JSON.parse(cc.sys.localStorage.getItem("document_gravel"))
                       , n = this.target.children[o.val].getChildByName("Background").getChildByName("Label").getComponent(cc.Label).string
                       , a = JSON.parse(cc.sys.localStorage.getItem(n))
                       , c = JSON.parse(cc.sys.localStorage.getItem(n + "data"));
@@ -4216,7 +4216,7 @@ window.__require = function e(t, n, a) {
                     cc.sys.localStorage.setItem(n, JSON.stringify(a)),
                     cc.sys.localStorage.setItem(n + "data", JSON.stringify(c)),
                     t.splice(o.val + 1, 0, n),
-                    cc.sys.localStorage.setItem("document_list", JSON.stringify(t)),
+                    cc.sys.localStorage.setItem("document_gravel", JSON.stringify(t)),
                     console.log(t);
                     for (var i = this.button, s = 1; s < i.parent.childrenCount; s++)
                         i.parent.children[s].destroy();
@@ -4292,16 +4292,16 @@ window.__require = function e(t, n, a) {
             },
             enter: function(e) {
                 console.log(o.val);
-                var t = JSON.parse(cc.sys.localStorage.getItem("document_list"));
+                var t = JSON.parse(cc.sys.localStorage.getItem("document_gravel"));
                 if (0 !== o.val) {
                     var n = t[o.val];
                     cc.sys.localStorage.removeItem(n),
                     cc.sys.localStorage.removeItem(n + "data"),
                     t.splice(o.val, 1),
-                    cc.sys.localStorage.setItem("document_list", JSON.stringify(t)),
+                    cc.sys.localStorage.setItem("document_gravel", JSON.stringify(t)),
                     o.val = 0
                 }
-                if (JSON.parse(cc.sys.localStorage.getItem("document_list"))) {
+                if (JSON.parse(cc.sys.localStorage.getItem("document_gravel"))) {
                     for (var a = this.button, c = 1; c < a.parent.childrenCount; c++)
                         a.parent.children[c].destroy();
                     for (var i = 1; i < t.length; i++) {
@@ -4864,13 +4864,13 @@ window.__require = function e(t, n, a) {
                     this.node.getChildByName("save_EditBox").active = !1;
                 else {
                     this.node.active = !1;
-                    var n = JSON.parse(cc.sys.localStorage.getItem("document_list"))
+                    var n = JSON.parse(cc.sys.localStorage.getItem("document_gravel"))
                       , a = n[c.val];
                     if (n.splice(c.val, 1, t),
-                    cc.sys.localStorage.setItem("document_list", JSON.stringify(n)),
+                    cc.sys.localStorage.setItem("document_gravel", JSON.stringify(n)),
                     o.data(a, t),
                     o.data(a + "data", t + "data"),
-                    JSON.parse(cc.sys.localStorage.getItem("document_list"))) {
+                    JSON.parse(cc.sys.localStorage.getItem("document_gravel"))) {
                         for (var i = this.button, s = 1; s < i.parent.childrenCount; s++)
                             i.parent.children[s].destroy();
                         for (var r = 1; r < n.length; r++) {
