@@ -371,7 +371,12 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
     }
     if(!localStorage.getItem("document_gravel")){localStorage.setItem("document_gravel","[\"we start\"]")}
     if(!localStorage.getItem("document_list")){localStorage.setItem("document_list","[\"we start\"]")}
-    if (localStorage.getItem("login_id")) {uid=localStorage.getItem("login_id");login();}
+    if (localStorage.getItem("login_id")) {autoLogin();}
+    async function autoLogin() {
+      uid=localStorage.getItem("login_id");
+      await sleep(100);
+      login();
+    }
   </script>
 </head>
 <body>
