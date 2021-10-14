@@ -250,6 +250,9 @@ async function wImp(wid) {
           if (!worlds.includes(res[0].worldName)) {
             worlds.push(res[0].worldName);
             localStorage.setItem('document_list', JSON.stringify(worlds));
+          } else {
+            worlds.push(res[0].worldName + "#");
+            localStorage.setItem('document_list', JSON.stringify(worlds));
           }
           var nName;
           if (localStorage.getItem(res[0].worldName)) {
@@ -264,6 +267,9 @@ async function wImp(wid) {
           var worlds = JSON.parse(localStorage.getItem("document_gravel"));
           if (!worlds.includes(res[0].worldName)) {
             worlds.push(res[0].worldName);
+            localStorage.setItem('document_gravel', JSON.stringify(worlds));
+          } else {
+            worlds.push(res[0].worldName + "#");
             localStorage.setItem('document_gravel', JSON.stringify(worlds));
           }
           var nName;
