@@ -267,7 +267,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
         var worlds = ["we start"];
         res.forEach(element => {
           worlds.push(element.worldName);
-          localStorage.setItem(element.default.worldName,element.worldData);
+          localStorage.setItem(element.worldName,element.worldData);
         });
         localStorage.setItem("document_list", JSON.stringify(worlds));
         window.alert("復元しました。再読み込みします。");
