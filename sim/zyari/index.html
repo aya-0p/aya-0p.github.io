@@ -372,21 +372,21 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
     }
     if(!localStorage.getItem("document_list")){localStorage.setItem("document_list","[\"we start\"]")}
     if(!localStorage.getItem("document_gravel")){localStorage.setItem("document_gravel","[\"we start\"]")}
-async function(){await sleep(2000);if (localStorage.getItem("login_id")) {uid = localStorage.getItem("login_id");document.getElementById("nav0").innerHTML = `<a href="#" onclick="logout();"><div style="font-size:16px;">${uid}としてログイン中</div><br>Logout<br>ログアウト</a>`;document.getElementById("nav0").style.display = "block";document.getElementById("nav1").style.display = "none";document.getElementById("nav3").style.display = "block";document.getElementById("nav4").style.display = "block";document.getElementById("nav5").style.display = "block";document.getElementById("nav6").style.display = "none";document.getElementById("nav9").style.display = "none";} else {document.getElementById("nav0").style.display = "none";document.getElementById("nav1").style.display = "block";document.getElementById("nav3").style.display = "none";document.getElementById("nav4").style.display = "none";document.getElementById("nav5").style.display = "none";document.getElementById("nav6").style.display = "none";document.getElementById("nav7").style.display = "block";document.getElementById("nav8").style.display = "block";document.getElementById("nav9").style.display = "none";}}
+    if (localStorage.getItem("login_id")) {uid = localStorage.getItem("login_id");}
   </script>
 </head>
 <body>
   <ul class="navigation">
-    <li class="nav-item" id="nav0" style=""><a href="#" onclick="logout();">Logout<br>ログアウト</a></li>
-    <li class="nav-item" id="nav1" style=""><a href="#" onclick="login();">Login / Create Account<br>ログイン</a></li>
+    <li class="nav-item" id="nav0" style="display: none"><a href="#" onclick="logout();">Logout<br>ログアウト</a></li>
+    <li class="nav-item" id="nav1" style="display: none"><a href="#" onclick="login();">Login / Create Account<br>ログイン</a></li>
     <!-- <li class="nav-item" id="nav2" style=""><a href="#" onclick="wSave();">Save</a></li> -->
-    <li class="nav-item" id="nav3" style=""><a href="#" onclick="wBackup();">Backup<br>バックアップ</a></li>
-    <li class="nav-item" id="nav4" style=""><a href="#" onclick="wImport();">Import<br>復元</a></li>
-    <li class="nav-item" id="nav5" style=""><a href="#" onclick="wShare();">Share<br>共有</a></li>
-    <li class="nav-item" id="nav6" style=""></li>
-    <li class="nav-item" id="nav7" style=""><a href="#" onclick="window.open(`https:/\/aya-0p.github.io/sim/view-default/`, '_blank');return false;">View<br>閲覧モードを利用</a></li>
-    <li class="nav-item" id="nav8" style=""><a href="#" onclick="wMove();">砂利からデータを移行</a></li>
-    <li class="nav-item" id="nav9" style=""></li>
+    <li class="nav-item" id="nav3" style="display: block"><a href="#" onclick="wBackup();">Backup<br>バックアップ</a></li>
+    <li class="nav-item" id="nav4" style="display: none"><a href="#" onclick="wImport();">Import<br>復元</a></li>
+    <li class="nav-item" id="nav5" style="display: none"><a href="#" onclick="wShare();">Share<br>共有</a></li>
+    <li class="nav-item" id="nav6" style="display: none"></li>
+    <li class="nav-item" id="nav7" style="display: none"><a href="#" onclick="window.open(`https:/\/aya-0p.github.io/sim/view-default/`, '_blank');return false;">View<br>閲覧モードを利用</a></li>
+    <li class="nav-item" id="nav8" style="display: block"><a href="#" onclick="wMove();">砂利からデータを移行</a></li>
+    <li class="nav-item" id="nav9" style="display: block"></li>
   </ul>
   
   <input type="checkbox" id="nav-trigger" class="nav-trigger" />
