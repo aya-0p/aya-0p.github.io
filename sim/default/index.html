@@ -175,7 +175,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
     //function wSave() {};
     function wBackup() {
       login();
-      var sendFile = {userid: uid, type: "backup", datas: []};
+      var sendFile = {userid: uid, type: "backup", datas: {default: [], gravel: []}};
         for(i = 1; i < JSON.parse(localStorage.getItem("document_list")).length; i++) {
           try {
             var data = {};
@@ -183,7 +183,20 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
             test = JSON.parse(localStorage.getItem(JSON.parse(localStorage.getItem("document_list"))[i]));
             data.worldName = JSON.parse(localStorage.getItem("document_list"))[i];
             data.worldData = localStorage.getItem(JSON.parse(localStorage.getItem("document_list"))[i])
-            sendFile.datas.push(data);
+            sendFile.datas.default.push(data);
+            login();
+          } catch (e) {
+           console.warn(e.message);
+          }
+        }
+        for(i = 1; i < JSON.parse(localStorage.getItem("document_gravel")).length; i++) {
+          try {
+            var data = {};
+            var test;
+            test = JSON.parse(localStorage.getItem(JSON.parse(localStorage.getItem("document_gravel"))[i]));
+            data.worldName = JSON.parse(localStorage.getItem("document_gravel"))[i];
+            data.worldData = localStorage.getItem(JSON.parse(localStorage.getItem("document_gravel"))[i])
+            sendFile.datas.gravel.push(data);
             login();
           } catch (e) {
            console.warn(e.message);
@@ -212,28 +225,55 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
       console.log(res);
       if (res.length === 1) {
         //import from share
-        var worlds = JSON.parse(localStorage.getItem("document_list"));
-        if (!worlds.includes(res[0].worldName)) {
-          worlds.push(res[0].worldName);
-          localStorage.setItem('document_list', JSON.stringify(worlds));
-        }
-        localStorage.setItem(res[0].worldName, res[0].worldData);
+        if (res[0].type === "default") {
+          var worlds = JSON.parse(localStorage.getItem("document_default"));
+          if (!worlds.includes(res[0].worldName)) {
+            worlds.push(res[0].worldName);
+            localStorage.setItem('document_default', JSON.stringify(worlds));
+          }
+          localStorage.setItem(res[0].worldName, res[0].worldData);
+        } else if (res[0].type === "gravel") {
+          var worlds = JSON.parse(localStorage.getItem("document_gravel"));
+          if (!worlds.includes(res[0].worldName)) {
+            worlds.push(res[0].worldName);
+            localStorage.setItem('document_gravel', JSON.stringify(worlds));
+          }
+          localStorage.setItem(res[0].worldName, res[0].worldData);
+        } else {};
+        
         window.alert("インポートしました。");
-        window.location.href = 'https://aya-0p.github.io/sim/default/';
+        window.location.href = 'https://aya-0p.github.io/sim/zyari/';
 
-      } else if (res.length > 1) {
+      } else if (res.length === undefined) {
         //import from backup
+        localStorage.clear();
+        var worlds = ["we start"];
+        res.default.forEach(element => {
+          worlds.push(element.worldName);
+          localStorage.setItem(element.worldName,element.worldData);
+        });
+        localStorage.setItem("document_list", JSON.stringify(worlds));
+        var worlds = ["we start"];
+        res.gravel.forEach(element => {
+          worlds.push(element.worldName);
+          localStorage.setItem(element.worldName,element.worldData);
+        });
+        localStorage.setItem("document_gravel", JSON.stringify(worlds));
+        window.alert("復元しました。再読み込みします。");
+        window.location.reload();
+      } else if (res.length >1) {
+        //import from backup(old)
         localStorage.clear();
         var worlds = ["we start"];
         res.forEach(element => {
           worlds.push(element.worldName);
-          localStorage.setItem(element.worldName,element.worldData);
+          localStorage.setItem(element.default.worldName,element.worldData);
         });
         localStorage.setItem("document_list", JSON.stringify(worlds));
         window.alert("復元しました。再読み込みします。");
         window.location.reload();
       } else {
-        if (wid === uid) {
+        if (wid === uid && !uid) {
           window.alert("そのアカウントにバックアップ記録はありません。");
         } else {
           window.alert("そのIDに一致するワールドが見つかりません。")
@@ -268,7 +308,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
       var wName = document.nam.elements[0].value;
       if (wName === null || wName === undefined || wName === "" || !checkJson(localStorage.getItem(wName))) {
       } else {
-        var sendFile = {userid: uid, type: "share", datas: [{worldName: wName, worldData: localStorage.getItem(wName)}]};
+        var sendFile = {userid: uid, type: "share", datas: [{type: "default", worldName: wName, worldData: localStorage.getItem(wName)}]};
         var a = sendData(sendFile);
         //window.alert(`共有したワールドのIDです。これを共有したい人に渡してください。\n ${a}`);
         document.getElementById("nav6").innerHTML = `共有したワールドのURLです。これを共有したい人に渡してください。\n<a href="https://aya-0p.github.io/sim/default/?id=${a}">URL(長押し/右クリックしてコピー/共有)</a>`
