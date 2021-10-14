@@ -249,36 +249,36 @@ async function wImp(wid) {
           var worlds = JSON.parse(localStorage.getItem("document_list"));
           if (!worlds.includes(res[0].worldName)) {
             worlds.push(res[0].worldName);
-            localStorage.setItem('document_default', JSON.stringify(worlds));
-            var nName;
-            if (localStorage.getItem(res[0].worldName)) {
-              nName = res[0].worldName + "#";
-            } else {
-              nName = res[0].worldName;
-            }
-            localStorage.setItem(nName, res[0].worldData);
-            window.alert("インポートしました。(同じ名前が存在した場合末尾に#がついています。)");
-            window.location.href = 'https://aya-0p.github.io/sim/default/';
+            localStorage.setItem('document_list', JSON.stringify(worlds));
           }
+          var nName;
+          if (localStorage.getItem(res[0].worldName)) {
+            nName = res[0].worldName + "#";
+          } else {
+            nName = res[0].worldName;
+          }
+          localStorage.setItem(nName, res[0].worldData);
+          window.alert("インポートしました。(同じ名前が存在した場合末尾に#がついています。)");
+          window.location.href = 'https://aya-0p.github.io/sim/default/';
         } else if (res[0].type === "gravel") {
           var worlds = JSON.parse(localStorage.getItem("document_gravel"));
           if (!worlds.includes(res[0].worldName)) {
             worlds.push(res[0].worldName);
             localStorage.setItem('document_gravel', JSON.stringify(worlds));
-            var nName;
-            if (localStorage.getItem(res[0].worldName)) {
-              nName = res[0].worldName + "#";
-            } else {
-              nName = res[0].worldName;
-            }
-            localStorage.setItem(nName, res[0].worldData);
-            window.alert("インポートしました。(同じ名前が存在した場合末尾に#がついています。)");
-            window.location.href = 'https://aya-0p.github.io/sim/zyari/';
           }
+          var nName;
+          if (localStorage.getItem(res[0].worldName)) {
+            nName = res[0].worldName + "#";
+          } else {
+            nName = res[0].worldName;
+          }
+          localStorage.setItem(nName, res[0].worldData);
+          window.alert("インポートしました。(同じ名前が存在した場合末尾に#がついています。)");
+          window.location.href = 'https://aya-0p.github.io/sim/zyari/';
         } else {};
       } else {
         window.alert("このURLは無効です。");
-        window.location.href = 'https://aya-0p.github.io/sim/zyari/';
+        window.location.href = 'https://aya-0p.github.io/sim/default/';
     }
     return false;
 };
