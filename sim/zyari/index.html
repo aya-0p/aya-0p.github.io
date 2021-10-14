@@ -170,6 +170,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
       } else {
         localStorage.setItem("login_id", uid);
         document.getElementById("nav0").innerHTML = `<a href="#" onclick="logout();"><div style="font-size:16px;">${uid}としてログイン中</div><br>Logout<br>ログアウト</a>`
+        document.getElementById("nav0").style.display = "block";
         document.getElementById("nav1").style.display = "none";
         //document.getElementById("nav2").style.display = "block";
         document.getElementById("nav3").style.display = "block";
