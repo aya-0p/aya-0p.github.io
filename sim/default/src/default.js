@@ -246,7 +246,7 @@ async function wImp(wid) {
     if (res.length === 1) {
         //import from share
         if (res[0].type === "default") {
-          var worlds = JSON.parse(localStorage.getItem("document_default"));
+          var worlds = JSON.parse(localStorage.getItem("document_list"));
           if (!worlds.includes(res[0].worldName)) {
             worlds.push(res[0].worldName);
             localStorage.setItem('document_default', JSON.stringify(worlds));
