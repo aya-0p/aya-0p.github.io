@@ -163,7 +163,8 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
       window.alert("ログアウトしました。");
       window.location.reload();
     }
-    function login() {
+    function login(id) {
+      if (id) {uid = id}
       if (!uid) {uid = window.prompt("ユーザー名（以降も使います）を入力してください。");};
       if (uid === null || uid === undefined || uid === "") {
         return false;
@@ -371,12 +372,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
     }
     if(!localStorage.getItem("document_gravel")){localStorage.setItem("document_gravel","[\"we start\"]")}
     if(!localStorage.getItem("document_list")){localStorage.setItem("document_list","[\"we start\"]")}
-    if (localStorage.getItem("login_id")) {autoLogin();}
-    async function autoLogin() {
-      uid=localStorage.getItem("login_id");
-      await sleep(100);
-      login();
-    }
+    if (localStorage.getItem("login_id")) {login(localStorage.getItem("login_id"));}
   </script>
 </head>
 <body>
