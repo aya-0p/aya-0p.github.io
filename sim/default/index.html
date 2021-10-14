@@ -162,6 +162,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
       if (uid === null || uid === undefined || uid === "") {
         return false;
       } else {
+        localStorage.setItem("login_id", uid);
         document.getElementById("nav1").style.display = "none";
         //document.getElementById("nav2").style.display = "block";
         document.getElementById("nav3").style.display = "block";
@@ -362,6 +363,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
     }
     if(!localStorage.getItem("document_gravel")){localStorage.setItem("document_gravel","[\"we start\"]")}
     if(!localStorage.getItem("document_list")){localStorage.setItem("document_list","[\"we start\"]")}
+    try {uid = localStorage.getItem("login_id");login();} catch {}
   </script>
 </head>
 <body>
