@@ -371,7 +371,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
     }
     if(!localStorage.getItem("document_gravel")){localStorage.setItem("document_gravel","[\"we start\"]")}
     if(!localStorage.getItem("document_list")){localStorage.setItem("document_list","[\"we start\"]")}
-    try {uid = localStorage.getItem("login_id");if(uid){login()}} catch {}
+    if (localStorage.getItem("login_id")) {login();}
   </script>
 </head>
 <body>
