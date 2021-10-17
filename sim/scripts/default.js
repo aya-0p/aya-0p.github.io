@@ -333,7 +333,9 @@ function syncImp(sid) {//url末尾に{?sid=*}があり同期を開始。それ�
     window.location.href = 'https://aya-0p.github.io/sim/default/';//変更
   } else {
     localStorage.setItem("world_sync", sid);
-    localStorage.setItem("document_list", JSON.stringify(JSON.parse(localStorage.getItem("document_list")).push("同期ワールド")))
+    var t = JSON.parse(localStorage.getItem("document_list"))
+    t.push("同期ワールド")
+    localStorage.setItem("document_list", JSON.stringify(t))
     window.location.href = 'https://aya-0p.github.io/sim/default/';//変更
   }
 }
@@ -346,7 +348,9 @@ function newSync() {//ユーザーの入力で実行。新しく自分のデー�
     var sendData = {type: "upload", datas: localStorage.getItem(wName)}
     var id = syncSend(sendData);
     localStorage.setItem("world_sync", id);
-    localStorage.setItem("document_list", JSON.stringify(JSON.parse(localStorage.getItem("document_list")).push("同期ワールド")))
+    var t = JSON.parse(localStorage.getItem("document_list"))
+    t.push("同期ワールド")
+    localStorage.setItem("document_list", JSON.stringify(t))
     var sUrl = `https://aya-0p.github.io/sim/default/index.html?sid=${id}`;//変更
     console.log(`共有URL : ${sUrl}`)
     //return sUrl;
