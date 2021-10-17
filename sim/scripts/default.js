@@ -344,11 +344,12 @@ function newSync() {//ユーザーの入力で実行。新しく自分のデー�
     window.alert("一度に同期できるワールドは1つまでです。\n同期するには既に同期しているワールドの同期を解除してください。");
   } else {
     var sendData = {type: "upload", datas: localStorage.getItem(wName)}
-    var id = syncSend(sendFile);
+    var id = syncSend(sendData);
     localStorage.setItem("world_sync", id);
     localStorage.setItem("document_list", JSON.stringify(JSON.parse(localStorage.getItem("document_list")).push("同期ワールド")))
     var sUrl = `https://aya-0p.github.io/sim/default/index.html?sid=${id}`;//変更
-    return sUrl;
+    console.log(`共有URL : ${sUrl}`)
+    //return sUrl;
   }
 }
 
@@ -358,6 +359,7 @@ function syncSend(sendFile) {//同期系の送る方(完成)
   xmlsSend.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   xmlsSend.send(JSON.stringify(sendFile));
   var response = xmlsSend.response;
+  return response;
 }
 
 function syncEnd() {
@@ -367,7 +369,7 @@ function syncEnd() {
 }
 
 function wSyncMenu() {
-  var worldList = JSON.parse(localStorage.getItem("document_list"));
+  var worldList = JSON.parse(localStorage.getItem("document_gravel"));
   document.getElementById("nav11").style.display = "block";
   var list = worldList.splice(1, worldList.length - 1);
   document.getElementById("nav11").innerHTML = `以下から同期するワールドを選択<br><form action="#" onsubmit="newSync();return false;" name="sy"><label><select id="ss"></select><button type="submit">同期</button></label></form>`;
