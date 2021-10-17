@@ -369,7 +369,7 @@ function syncEnd() {
 }
 
 function wSyncMenu() {
-  var worldList = JSON.parse(localStorage.getItem("document_gravel"));
+  var worldList = JSON.parse(localStorage.getItem("document_list"));
   document.getElementById("nav11").style.display = "block";
   var list = worldList.splice(1, worldList.length - 1);
   document.getElementById("nav11").innerHTML = `以下から同期するワールドを選択<br><form action="#" onsubmit="newSync();return false;" name="sy"><label><select id="ss"></select><button type="submit">同期</button></label></form>`;
