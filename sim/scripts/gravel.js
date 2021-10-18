@@ -357,6 +357,7 @@ function newSync() {//ユーザーの入力で実行。新しく自分のデー�
     localStorage.setItem("document_gravel", JSON.stringify(t))
     var sUrl = `https://aya-0p.github.io/sim/gravel/index.html?sid=${id}`;//変更
     console.log(`共有URL : ${sUrl}`)
+    document.getElementById("nav11").innerHTML = `同期したワールドのURLです。これを共有したい人に渡してください。<a href="https://aya-0p.github.io/sim/gravel/index.html?sid=${id}">URL(長押し/右クリックしてからコピー/共有)</a>`
     //return sUrl;
   }
 }
