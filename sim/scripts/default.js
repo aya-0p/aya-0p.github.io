@@ -32,9 +32,11 @@ function login(id) {
     if (localStorage.getItem("world_sync")) {
       document.getElementById("nav10").style.display = "none";
       document.getElementById("nav12").style.display = "block";
+      document.getElementById("nav13").style.display = "block";
     } else {
       document.getElementById("nav10").style.display = "block";
       document.getElementById("nav12").style.display = "none";
+      document.getElementById("nav13").style.display = "none";
     }
     return false;
   }
