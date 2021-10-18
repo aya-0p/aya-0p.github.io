@@ -48,7 +48,9 @@ function wBackup() {
       test = JSON.parse(localStorage.getItem(JSON.parse(localStorage.getItem("document_list"))[i]));
       data.worldName = JSON.parse(localStorage.getItem("document_list"))[i];
       data.worldData = localStorage.getItem(JSON.parse(localStorage.getItem("document_list"))[i]);
-      sendFile.datas.default.push(data);
+      if (data.worldName && data.worldData) {
+        sendFile.datas.default.push(data);
+      }
       login();
     } catch (e) {
       console.warn(e.message);
@@ -61,7 +63,9 @@ function wBackup() {
       test = JSON.parse(localStorage.getItem(JSON.parse(localStorage.getItem("document_gravel"))[i]));
       data.worldName = JSON.parse(localStorage.getItem("document_gravel"))[i];
       data.worldData = localStorage.getItem(JSON.parse(localStorage.getItem("document_gravel"))[i]);
-      sendFile.datas.gravel.push(data);
+      if (data.worldName && data.worldData) {
+        sendFile.datas.gravel.push(data);
+      }
       login();
     } catch (e) {
       console.warn(e.message);
