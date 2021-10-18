@@ -380,6 +380,7 @@ function wSyncMenu() {
   for (var i = 0; i < list.length; i++) {
       document.getElementById("ss").innerHTML += `<option value="${list[i]}">${list[i]}</option>`;
     }
+  return false;
 }
 
 setUp();
