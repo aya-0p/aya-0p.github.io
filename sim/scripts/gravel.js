@@ -246,8 +246,8 @@ async function setUp() {
     worldSyncGet();
   }
   var syncId = (new URL(document.location)).searchParams.get("sid");
-  if (getId) {
-    syncImp(getId.replace(/\'/, ""));
+  if (syncId) {
+    syncImp(syncId.replace(/\'/, ""));
   }
 };
 async function wImp(wid) {
