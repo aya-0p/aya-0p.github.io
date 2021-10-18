@@ -224,11 +224,11 @@ async function setUp() {
   if (getId) {
     wImp(getId.replace(/\'/, ""));
   }
-  if (!localStorage.getItem("document_gravel")) {
-    localStorage.setItem("document_gravel", "[\"we start\"]");
+  if (!localStorage.getItem("document_gravel") || JSON.parse(localStorage.getItem("document_gravel"))[0] !== "we start") {
+    localStorage.setItem("document_gravel", "[\"we start\"]")
   }
-  if (!localStorage.getItem("document_list")) {
-    localStorage.setItem("document_list", "[\"we start\"]");
+  if (!localStorage.getItem("document_list") || JSON.parse(localStorage.getItem("document_list"))[0] !== "we start") {
+    localStorage.setItem("document_list", "[\"we start\"]")
   }
   if (localStorage.getItem("login_id")) {
     uid = localStorage.getItem("login_id");
