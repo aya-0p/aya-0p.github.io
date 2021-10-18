@@ -182,7 +182,7 @@ function worldShare() {
     };
     var a = sendData(sendFile);
     //window.alert(`共有したワールドのIDです。これを共有したい人に渡してください。\n ${a}`);
-    document.getElementById("nav6").innerHTML = `共有したワールドのURLです。これを共有したい人に渡してください。\n<a href="https://aya-0p.github.io/sim/zyari/?id=${a}">URL(長押し/右クリックしてコピー/共有)</a>`;
+    document.getElementById("nav6").innerHTML = `共有したワールドのURLです。これを共有したい人に渡してください。\n<a href="https://aya-0p.github.io/sim/gravel/?id=${a}">URL(長押し/右クリックしてからコピー/共有)</a>`;
     console.log(a);
   }
   return false;
@@ -302,11 +302,11 @@ async function wImp(wid) {
           }
           localStorage.setItem(nName, res[0].worldData);
           window.alert("インポートしました。(同じ名前が存在した場合末尾に#がついています。)");
-          window.location.href = 'https://aya-0p.github.io/sim/zyari/';
+          window.location.href = 'https://aya-0p.github.io/sim/gravel/';
         } else {};
       } else {
         window.alert("このURLは無効です。");
-        window.location.href = 'https://aya-0p.github.io/sim/zyari/';
+        window.location.href = 'https://aya-0p.github.io/sim/gravel/';
     }
     return false;
 };
@@ -334,13 +334,13 @@ function worldSyncPost() {//ユーザーの入力で実行。アップロード(
 function syncImp(sid) {//url末尾に{?sid=*}があり同期を開始。それだけ(完成)
   if (localStorage.getItem("world_sync")) {
     window.alert(`一度に同期できるワールドは1つまでです。\n同期するには既に同期しているワールドの同期を解除してください。`);
-    window.location.href = 'https://aya-0p.github.io/sim/zyari/';//変更
+    window.location.href = 'https://aya-0p.github.io/sim/gravel/';//変更
   } else {
     localStorage.setItem("world_sync", sid);
     var t = JSON.parse(localStorage.getItem("document_gravel"))
     t.push("同期ワールド")
     localStorage.setItem("document_gravel", JSON.stringify(t))
-    window.location.href = 'https://aya-0p.github.io/sim/zyari/';//変更
+    window.location.href = 'https://aya-0p.github.io/sim/gravel/';//変更
   }
 }
 
@@ -355,7 +355,7 @@ function newSync() {//ユーザーの入力で実行。新しく自分のデー�
     var t = JSON.parse(localStorage.getItem("document_gravel"))
     t.push("同期ワールド")
     localStorage.setItem("document_gravel", JSON.stringify(t))
-    var sUrl = `https://aya-0p.github.io/sim/zyari/index.html?sid=${id}`;//変更
+    var sUrl = `https://aya-0p.github.io/sim/gravel/index.html?sid=${id}`;//変更
     console.log(`共有URL : ${sUrl}`)
     //return sUrl;
   }
