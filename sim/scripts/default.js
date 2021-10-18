@@ -304,7 +304,7 @@ async function wImp(wid) {
           }
           localStorage.setItem(nName, res[0].worldData);
           window.alert("インポートしました。(同じ名前が存在した場合末尾に#がついています。)");
-          window.location.href = 'https://aya-0p.github.io/sim/zyari/';
+          window.location.href = 'https://aya-0p.github.io/sim/gravel/';
         } else {};
       } else {
         window.alert("このURLは無効です。");
@@ -359,6 +359,7 @@ function newSync() {//ユーザーの入力で実行。新しく自分のデー�
     localStorage.setItem("document_list", JSON.stringify(t))
     var sUrl = `https://aya-0p.github.io/sim/default/index.html?sid=${id}`;//変更
     console.log(`共有URL : ${sUrl}`)
+    document.getElementById("nav11").innerHTML = `同期したワールドのURLです。これを共有したい人に渡してください。<a href="https://aya-0p.github.io/sim/default/index.html?sid=${id}">URL(長押し/右クリックしてからコピー/共有)</a>`
     //return sUrl;
   }
 }
