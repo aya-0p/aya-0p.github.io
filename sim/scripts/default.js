@@ -322,7 +322,7 @@ function worldSyncPost() {//ユーザーの入力で実行。アップロード(
   var id = localStorage.getItem("world_sync")
   if (id) {
     var data = localStorage.getItem("同期ワールド");
-    var sendFile = {type: "update", datas: data};
+    var sendFile = {type: "update", datas: data, wid: id};
     syncSend(sendFile);
   }
 }
