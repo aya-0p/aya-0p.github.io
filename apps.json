@@ -9,12 +9,54 @@
   "featuredApps": [],
   "apps": [
     {
+      "name": "aria",
+      "bundleIdentifier": "com.poppingmoon.aria",
+      "marketplaceID": "6499410880",
+      "developerName": "aria",
+      "subtitle": "地球で生まれた分散型SNSに飛び込もう",
+      "localizedDescription": "地球で生まれた分散型SNSに飛び込もう\n\nAriaは分散型マイクロブログプラットフォームMisskeyのクライアントアプリです。\n\nMisskeyのほとんどの機能を利用可能\n各種タイムラインの閲覧や投稿、クリップやリストなどの編集をはじめとしたMisskeyの提供する機能の大部分に対応しています。\n\n複数のアカウントやサーバーをスワイプして切り替え\nAriaでは見たいタイムラインをタブとして保存することで簡単に好きなタイムラインを見ることができます。どのアカウントのタイムラインでもタブに追加できるので、サーバーを横断して話題を追いかけることが簡単にできます。\n\n公式のMisskey Webクライアントに近いUI\nブラウザから見られる公式フロントエンドに近い、馴染みやすいデザインを実現しています。MFMによるノートの装飾にも対応しています。\n\n高度にカスタマイズ可能\nリアクションの表示サイズやユーザーアイコンの表示など多数の設定を変更して自分の好みに調整することができます。テーマを変更して好きな色にアプリをデコレーションすることもできます。",
+      "iconURL": "https://github.com/poppingmoon/aria/blob/main/assets/icons/aria.png?raw=true",
+      "tintColor": "#54a4fc",
+      "category": "social",
+      "screenshots": [
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/a1/09/5f/a1095f00-d43f-789e-303c-0b962a069f64/63af7d9b-4da2-4b04-bcf9-b36b423e09e0_Simulator_Screenshot_-_iPhone_15_Pro_Max_-_2024-07-13_at_17.27.44.png/314x680bb.webp",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/1d/21/cf/1d21cf90-f437-dffc-5701-e1bccf415b94/d92b10d4-3506-49a1-b80d-56fe35c4a8eb_Simulator_Screenshot_-_iPhone_15_Pro_Max_-_2024-07-13_at_08.37.59.png/314x680bb.webp",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/f8/c5/4a/f8c54aa7-864a-b142-b988-3317bd9ea988/597c892b-8fb4-4594-8df3-7c21020b5ded_Simulator_Screenshot_-_iPhone_15_Pro_Max_-_2024-07-14_at_16.02.06.png/314x680bb.webp",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/d9/f5/2e/d9f52e17-be0e-0588-da7d-80b67104fa7e/c26f8ae3-cb7e-4aed-80ec-1cc9f45b8be6_Simulator_Screenshot_-_iPhone_15_Pro_Max_-_2024-07-14_at_16.02.18.png/314x680bb.webp",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/36/47/ba/3647bac1-f7ea-8bca-3125-1e289f0fc496/8fd31313-4620-40af-bc3c-d641e616e7e1_Simulator_Screenshot_-_iPhone_15_Pro_Max_-_2024-07-14_at_16.02.26.png/314x680bb.webp",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/e8/31/92/e8319210-54b8-24eb-e67c-aefc7e0d58b0/f0c4566c-53a9-45b9-aac4-b2a1263ca153_Simulator_Screenshot_-_iPhone_15_Pro_Max_-_2024-07-14_at_16.02.44.png/314x680bb.webp",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/4e/e8/2c/4ee82c4f-ae1b-554f-c803-2cef01570687/d93a05ca-da3c-428b-95f7-33239ead00b5_Simulator_Screenshot_-_iPhone_15_Pro_Max_-_2024-07-14_at_16.03.00.png/314x680bb.webp",
+        "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/fc/e3/e8/fce3e805-e6c5-5252-27ad-54bd2822174a/9234211d-ae0d-46a2-9f79-5c6051e7ba1d_Simulator_Screenshot_-_iPhone_15_Pro_Max_-_2024-07-14_at_16.03.29.png/314x680bb.webp"
+      ],
+      "versions": [
+        {
+          "downloadURL": "https://github.com/poppingmoon/aria/releases/download/v1.4.8/aria-v1.4.8.ipa",
+          "size": 102800000,
+          "version": "1.4.8",
+          "buildVersion": null,
+          "date": "2026-04-01T12:49:00+09:00",
+          "localizedDescription": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {
+          "NSCameraUsageDescription": "To take photos or videos, please allow access to your camera.",
+          "NSMicrophoneUsageDescription": "To record audio files, please allow access to your microphone.",
+          "NSPhotoLibraryAddUsageDescription": "To download files, please allow access to your photo library.",
+          "NSPhotoLibraryUsageDescription": "To upload files, please allow access to your photo library."
+        }
+      },
+      "patreon": {}
+    },
+    {
       "name": "Nextcloud",
       "bundleIdentifier": "it.twsweb.Nextcloud",
-      "marketplaceID": "",
+      "marketplaceID": "1125420102",
       "developerName": "nextcloud",
-      "subtitle": "",
-      "localizedDescription": "",
+      "subtitle": "Private cloud storage",
+      "localizedDescription": "Regain control over your data.\n\nThe Nextcloud app for iOS brings your photos and files with you wherever you go!\n\n- Connect one or multiple accounts to your private or business cloud.\n- Access, work on and share documents wherever you are.\n- Upload your photos and videos to your Nextcloud to save space on your phone.\n- Browse photos and videos stored on your private cloud.\n- Choose files to keep available even when you're offline.\n- Additional features:\n  - Nextcloud AI Assistant\n  - Drag and drop between multiple Nextcloud Files windows on your iPad\n  - Protect your account with a password or FaceID\n  - Support for End to end encryption.\n\nNew to Nextcloud? Nextcloud is a collaboration platform designed for private clouds. Host it yourself or with a company you trust and you gain a complete digital workplace with online office document collaboration, video calls and chat, email, calendar and project management, a local AI assistant and much more.\n\nSee https://nextcloud.com/hub to find out what Nextcloud can do for you!\n\nFor discussions and reporting issues please go to https://help.nextcloud.com/c/clients/ios",
       "iconURL": "https://avatars.githubusercontent.com/u/19211038",
       "tintColor": "#0c9ce4",
       "category": "other",
