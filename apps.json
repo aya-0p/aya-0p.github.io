@@ -1,0 +1,50 @@
+{
+  "name": "Aya",
+  "subtitle": "",
+  "description": "",
+  "iconURL": "https://avatars.githubusercontent.com/u/69342748",
+  "website": "https://ay0.org",
+  "patreonURL": "",
+  "tintColor": "#639400",
+  "featuredApps": [],
+  "apps": [
+    {
+      "name": "Nextcloud",
+      "bundleIdentifier": "it.twsweb.Nextcloud",
+      "marketplaceID": "",
+      "developerName": "nextcloud",
+      "subtitle": "",
+      "localizedDescription": "",
+      "iconURL": "https://avatars.githubusercontent.com/u/19211038",
+      "tintColor": "#0c9ce4",
+      "category": "other",
+      "screenshots": [],
+      "versions": [
+        {
+          "downloadURL": "https://github.com/aya-0p/nextcloud-ios/releases/download/v33.0.3-3/nextcloud.ipa",
+          "size": 140300000,
+          "version": "33.0.3-3",
+          "buildVersion": null,
+          "date": "2026-04-01T12:39:00+09:00",
+          "localizedDescription": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {
+          "NSCameraUsageDescription": "Camera access is required to scan documents and take photos in this app.",
+          "NSFaceIDUsageDescription": "Face ID is required to authenticate using face recognition.",
+          "NSLocationAlwaysAndWhenInUseUsageDescription": "This app needs access to your location even in the background to automatically start uploading files when significant movement is detected. GPS is not used.",
+          "NSLocationAlwaysUsageDescription": "The app uses your location to automatically trigger file uploads when you move between areas.",
+          "NSLocationWhenInUseUsageDescription": "This app uses your location to detect movement and automatically upload files. It does not use GPS and does not store your location.",
+          "NSMicrophoneUsageDescription": "Microphone access is required to create voice notes.",
+          "NSPhotoLibraryAddUsageDescription": "This lets you upload and save photos using this app. Photos can then be browsed and viewed via the Media tab.",
+          "NSPhotoLibraryUsageDescription": "This lets you upload and save photos using this app. Photos can then be browsed and viewed via the Media tab."
+        }
+      },
+      "patreon": {}
+    }
+  ],
+  "news": []
+}
