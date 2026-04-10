@@ -30,20 +30,20 @@
       ],
       "versions": [
         {
-          "downloadURL": "https://github.com/poppingmoon/aria/releases/download/v1.4.8/aria-v1.4.8.ipa",
-          "size": 102800000,
-          "version": "1.4.8",
-          "buildVersion": 1,
-          "date": "2026-04-01T12:49:00+09:00",
-          "localizedDescription": null,
-          "minOSVersion": null
-        },
-        {
           "downloadURL": "https://github.com/poppingmoon/aria/releases/download/v1.4.9/aria-v1.4.9.ipa",
           "size": 98100000,
           "version": "1.4.9",
           "buildVersion": 2,
           "date": "2026-04-09T12:49:00+09:00",
+          "localizedDescription": null,
+          "minOSVersion": null
+        },
+        {
+          "downloadURL": "https://github.com/poppingmoon/aria/releases/download/v1.4.8/aria-v1.4.8.ipa",
+          "size": 102800000,
+          "version": "1.4.8",
+          "buildVersion": 1,
+          "date": "2026-04-01T12:49:00+09:00",
           "localizedDescription": null,
           "minOSVersion": null
         }
