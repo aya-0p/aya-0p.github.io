@@ -33,16 +33,16 @@
           "downloadURL": "https://github.com/poppingmoon/aria/releases/download/v1.4.8/aria-v1.4.8.ipa",
           "size": 102800000,
           "version": "1.4.8",
-          "buildVersion": null,
+          "buildVersion": 1,
           "date": "2026-04-01T12:49:00+09:00",
           "localizedDescription": null,
           "minOSVersion": null
         },
         {
           "downloadURL": "https://github.com/poppingmoon/aria/releases/download/v1.4.9/aria-v1.4.9.ipa",
-          "size": 102800000,
+          "size": 98100000,
           "version": "1.4.9",
-          "buildVersion": null,
+          "buildVersion": 2,
           "date": "2026-04-09T12:49:00+09:00",
           "localizedDescription": null,
           "minOSVersion": null
@@ -75,7 +75,7 @@
           "downloadURL": "https://github.com/aya-0p/nextcloud-ios/releases/download/v33.0.3-3/nextcloud.ipa",
           "size": 140300000,
           "version": "33.0.3-3",
-          "buildVersion": null,
+          "buildVersion": 1,
           "date": "2026-04-01T12:39:00+09:00",
           "localizedDescription": null,
           "minOSVersion": null
