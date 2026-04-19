@@ -33,7 +33,7 @@
           "downloadURL": "https://github.com/poppingmoon/aria/releases/download/v1.5.0-beta.1/aria-v1.5.0-beta.1.ipa",
           "size": 102000000,
           "version": "1.5.0-beta.1",
-          "buildVersion": 2,
+          "buildVersion": 3,
           "date": "2026-04-20T12:49:00+09:00",
           "localizedDescription": null,
           "minOSVersion": null
@@ -84,7 +84,7 @@
           "downloadURL": "https://github.com/aya-0p/nextcloud-ios/releases/download/v33.0.5-1/nextcloud.ipa",
           "size": 140300000,
           "version": "33.0.5-1",
-          "buildVersion": 1,
+          "buildVersion": 2,
           "date": "2026-04-16T12:39:00+09:00",
           "localizedDescription": null,
           "minOSVersion": null
