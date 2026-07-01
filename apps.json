@@ -30,6 +30,15 @@
       ],
       "versions": [
         {
+          "downloadURL": "https://github.com/poppingmoon/aria/releases/download/v1.5.5/aria-v1.5.5.ipa",
+          "size": 103000000,
+          "version": "1.5.5",
+          "buildVersion": 8,
+          "date": "2026-07-01T09:00:00+09:00",
+          "localizedDescription": null,
+          "minOSVersion": null
+        },
+        {
           "downloadURL": "https://github.com/poppingmoon/aria/releases/download/v1.5.4/aria-v1.5.4.ipa",
           "size": 103000000,
           "version": "1.5.4",
