@@ -9,6 +9,32 @@
   "featuredApps": [],
   "apps": [
     {
+      "name": "iSH-AOK",
+      "bundleIdentifier": "app.ish.iSH-AOK",
+      "developerName": "emkey1",
+      "subtitle": "Linux shell for iOS with additions",
+      "localizedDescription": "iSH-AOK is a fork of ish-app/ish with local product, tooling, and platform changes for day-to-day development on this tree.",
+      "iconURL": "https://github.com/emkey1/ish-AOK/blob/working/app/Assets.xcassets/AppIcon.appiconset/1024.png?raw=true",
+      "tintColor": "#54a4fc",
+      "category": "social",
+      "versions": [
+        {
+          "downloadURL": "https://github.com/emkey1/ish-AOK/releases/download/builds%2FiSH-AOK_544/iSH-AOK-544.ipa",
+          "size": 103000000,
+          "version": "1.3",
+          "buildVersion": 1,
+          "date": "2026-07-26T09:00:00+09:00",
+          "localizedDescription": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      },
+      "patreon": {}
+    },
+    {
       "name": "aria",
       "bundleIdentifier": "com.poppingmoon.aria",
       "marketplaceID": "6499410880",
