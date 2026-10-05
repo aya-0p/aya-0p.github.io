@@ -303,9 +303,9 @@
       "screenshots": [],
       "versions": [
         {
-          "downloadURL": "https://github.com/aya-0p/nextcloud-ios/releases/download/v35.0.0/nextcloud.ipa",
+          "downloadURL": "https://github.com/aya-0p/nextcloud-ios/releases/download/v35.0.2/nextcloud.ipa",
           "size": 136000000,
-          "version": "35.0.0",
+          "version": "35.0.2",
           "buildVersion": 16,
           "date": "2026-10-05T09:00:00+09:00",
           "localizedDescription": null,
